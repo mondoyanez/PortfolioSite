@@ -3,8 +3,5 @@ module.exports = {
         './Pages/**/*.cshtml',
         './Views/**/*.cshtml'
     ],
-    theme: {
-        extend: {},
-    },
-    plugins: [],
+    darkMode: 'class'
 }
