@@ -1,14 +1,9 @@
-﻿var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+﻿const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+const themeToggleBtn = document.getElementById('theme-toggle');
 
-// Change the icons inside the button based on previous settings
-if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    themeToggleLightIcon.classList.remove('hidden');
-} else {
-    themeToggleDarkIcon.classList.remove('hidden');
-}
-
-var themeToggleBtn = document.getElementById('theme-toggle');
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', setThemeFromLocalStorage);
 
 themeToggleBtn.addEventListener('click', function() {
 
@@ -38,3 +33,17 @@ themeToggleBtn.addEventListener('click', function() {
     }
     
 });
+
+// Function to set the theme based on the stored value
+function setThemeFromLocalStorage() {
+    var theme = localStorage.getItem('color-theme');
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+      themeToggleDarkIcon.classList.add('hidden');
+      themeToggleLightIcon.classList.remove('hidden');
+    } else {
+      document.documentElement.classList.remove('dark');
+      themeToggleDarkIcon.classList.remove('hidden');
+      themeToggleLightIcon.classList.add('hidden');
+    }
+}
