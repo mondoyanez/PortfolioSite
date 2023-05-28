@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolio.Controllers;
 
-public class LittlePersonComputerController : Controller
+public class LittleComputerController : Controller
 {
-    public LittlePersonComputerController()
+    public LittleComputerController()
     {
 
     }
