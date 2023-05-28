@@ -1,7 +1,5 @@
 name: Build and deploy .NET Core application to Web App AYPortfolio
 on:
-  push:
-    branches: ["integration"]
   pull_request:
     branches: ["integration"]
 env:
