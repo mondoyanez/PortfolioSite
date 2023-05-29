@@ -12,36 +12,38 @@
         <div class="absolute">
             <p class="text-lg text-blue-800 dark:text-blue-200 -mt-24 -ml-14">Side A</p>
             <p class="text-lg text-blue-800 dark:text-blue-200 mt-16 ml-12">Side B</p>
-            <p class="text-lg text-blue-800 dark:text-blue-200 -mt-36 ml-24">Hypontenuse</p>
+            <p class="text-lg text-blue-800 dark:text-blue-200 -mt-36 ml-24">Hypotenuse</p>
         </div>
     </div>
 </div>
 
-<div class="-ml-16">
-    <div class="flex justify-center mt-20">
-        <div>
-            <label class="text-blue-800 dark:text-blue-200">Side A:</label>
-            <input type="number" min="1" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
+<form asp-controller="Pythagorean" asp-action="Index" method="post">
+    <div class="-ml-16">
+        <div class="flex justify-center mt-20">
+            <div>
+                <label class="text-blue-800 dark:text-blue-200">Side A:</label>
+                <input type="number" min="1" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
+            </div>
         </div>
-    </div>
-    
-    <div class="flex justify-center mt-2">
-        <div>
-            <label class="text-blue-800 dark:text-blue-200">Side B:</label>
-            <input type="number" min="1" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
+        
+        <div class="flex justify-center mt-2">
+            <div>
+                <label class="text-blue-800 dark:text-blue-200">Side B:</label>
+                <input type="number" min="1" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
+            </div>
         </div>
-    </div>
-    
-    <div class="flex justify-center mt-2 -ml-12">
-        <div>
-            <label class="text-blue-800 dark:text-blue-200">Hypontenuse:</label>
-            <input type="number" min="1" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" readonly />
+        
+        <div class="flex justify-center mt-2 -ml-10">
+            <div>
+                <label class="text-blue-800 dark:text-blue-200">Hypotenuse:</label>
+                <input type="number" min="1" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" readonly />
+            </div>
         </div>
-    </div>
 
-    <div class="flex justify-center mt-5 ml-32">
-        <div>
-            <input type="submit" class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5" value="Calculate" />
+        <div class="flex justify-center mt-5 ml-32">
+            <div>
+                <input type="submit" class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5" value="Calculate" />
+            </div>
         </div>
     </div>
-</div>
+</form>
