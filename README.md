@@ -58,7 +58,7 @@ site so that the user the view the page if they wish to view it.
 - A description of the project and when I was apart of the team is included, the VIEW button on the bottom of the card takes the user to the deployed site so that the user
 the view the deployed page in action and try out any of the features on the website.
 
-### Little Person Computer
+### Pythagorean Theorem Calculator
 - Still being developed
 
 ### Conga Line Lab
