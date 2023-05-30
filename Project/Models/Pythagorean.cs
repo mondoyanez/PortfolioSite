@@ -4,6 +4,7 @@ namespace Portfolio.Models;
 public class Pythagorean
 {
     [Required(AllowEmptyStrings = false, ErrorMessage = "Side A is a required field")]
+    [Range(0.00001, Double.MaxValue, ErrorMessage = "Side A must be greater than 0")]
     public double SideA { get; set; }
     [Required(AllowEmptyStrings = false, ErrorMessage = "Side B is a required field")]
     public double SideB { get; set; }
