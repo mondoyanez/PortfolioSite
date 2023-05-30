@@ -1,0 +1,67 @@
+@model Portfolio.Models.Pythagorean
+
+@{
+    ViewData["Title"] = "Pythagorean Theorem Calculator";
+}
+
+<div class="text-center">
+    <h1 class="font-medium text-3xl text-blue-800 dark:text-blue-200">Pythagorean Theorem Calculator</h1>
+</div>
+
+<div class="flex justify-center mt-20">
+    <div>
+        <img src="https://em-content.zobj.net/thumbs/160/microsoft/319/triangular-ruler_1f4d0.png" alt="Triangle"/>
+        <div>
+            <p class="text-lg text-blue-800 dark:text-blue-200 -mt-24 -ml-14">Side A</p>
+            <p class="text-lg text-blue-800 dark:text-blue-200 mt-16 ml-12">Side B</p>
+            <p class="text-lg text-blue-800 dark:text-blue-200 -mt-36 ml-24">Hypotenuse</p>
+        </div>
+    </div>
+</div>
+
+<form asp-controller="Pythagorean" asp-action="Index" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-red-800 text-sm"></div>
+    <div class="-ml-16">
+        <div class="flex justify-center mt-44">
+            <div>
+                <label class="text-blue-800 dark:text-blue-200">Side A:</label>
+                <input asp-for="SideA" type="number" value="@Model?.SideA" step="any" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
+                <span asp-validation-for="SideA" class="text-red-800 text-sm grid ml-16"></span>
+            </div>
+        </div>
+
+        <div class="flex justify-center mt-2">
+            <div>
+                <label class="text-blue-800 dark:text-blue-200">Side B:</label>
+                <input asp-for="SideB" type="number" value="@Model?.SideB" step="any" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
+                <span asp-validation-for="SideB" class="text-red-800 text-sm grid ml-16"></span>
+            </div>
+        </div>
+
+        @if (!ViewBag.IsValid)
+        {
+            <div class="flex justify-center mt-2 -ml-16">
+                <div>
+                    <label class="text-blue-800 dark:text-blue-200">Hypotenuse:</label>
+                    <input asp-for="Hypotenuse" type="text" value="@Model?.Hypotenuse" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" readonly/>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="flex justify-center mt-2 -ml-10">
+                <div>
+                    <label class="text-blue-800 dark:text-blue-200">Hypotenuse:</label>
+                    <input asp-for="Hypotenuse" type="text" value="@Model?.Hypotenuse" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" readonly/>
+                </div>
+            </div>
+        }
+        
+
+        <div class="flex justify-center mt-5 ml-32">
+            <div>
+                <input type="submit" class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5" value="Calculate"/>
+            </div>
+        </div>
+    </div>
+</form>
