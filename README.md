@@ -59,7 +59,9 @@ site so that the user the view the page if they wish to view it.
 the view the deployed page in action and try out any of the features on the website.
 
 ### Pythagorean Theorem Calculator
-- Still being developed
+- User enters a postive value greater than 0.00001 for Side A and Side B
+- User then clicks the calculate button
+- User is given the hypotenuse given a triangle with those two legs
 
 ### Conga Line Lab
 - Still being developed
