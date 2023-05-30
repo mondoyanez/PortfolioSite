@@ -14,6 +14,7 @@ public class PythagoreanController : Controller
             SideB = sideB
         };
         pythagorean.Calculate();
+        ViewBag.IsValid = true;
 
         return View(pythagorean);
     }
@@ -26,7 +27,10 @@ public class PythagoreanController : Controller
         TryValidateModel(pythagorean);
 
         if (!ModelState.IsValid)
-            return View();
+        {
+            ViewBag.IsValid = false;
+            return View(pythagorean);
+        }
 
         return RedirectToAction("Index", new { sideA = pythagorean.SideA, sideB = pythagorean.SideB } );
     }
