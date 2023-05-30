@@ -1,24 +1,33 @@
 using Microsoft.AspNetCore.Mvc;
+using Portfolio.Models;
 
 namespace Portfolio.Controllers;
 
 public class PythagoreanController : Controller
 {
-    public PythagoreanController()
-    {
-
-    }
-
     [HttpGet]
-    public IActionResult Index(double hypotenuse = 0)
+    public IActionResult Index(double sideA = 0, double sideB = 0)
     {
-        return View(hypotenuse);
+        Pythagorean pythagorean = new()
+        {
+            SideA = sideA,
+            SideB = sideB
+        };
+        pythagorean.Calculate();
+
+        return View(pythagorean);
     }
 
     [HttpPost]
-    public IActionResult Index(double sideA, double sideB)
+    [ValidateAntiForgeryToken]
+    public IActionResult Index([Bind("SideA, SideB")] Pythagorean pythagorean)
     {
-        double valueCalculated = Math.Round(Math.Sqrt(Math.Pow(sideA, 2) + Math.Pow(sideB, 2)), 4);
-        return RedirectToAction("Index", new { hypotenuse = valueCalculated } );
+        ModelState.Clear();
+        TryValidateModel(pythagorean);
+
+        if (!ModelState.IsValid)
+            return View();
+
+        return RedirectToAction("Index", new { sideA = pythagorean.SideA, sideB = pythagorean.SideB } );
     }
 }

@@ -1,4 +1,4 @@
-@model double
+@model Portfolio.Models.Pythagorean
 
 @{
     ViewData["Title"] = "Pythagorean Theorem Calculator";
@@ -20,31 +20,34 @@
 </div>
 
 <form asp-controller="Pythagorean" asp-action="Index" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-red-800 text-sm"></div>
     <div class="-ml-16">
         <div class="flex justify-center mt-20">
             <div>
                 <label class="text-blue-800 dark:text-blue-200">Side A:</label>
-                <input type="number" min="1" name="sideA" step="any" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" required />
+                <input asp-for="SideA" type="number" value="@Model?.SideA" step="any" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
+                <span asp-validation-for="SideA" class="text-red-800 text-sm block ml-16"></span>
             </div>
         </div>
-        
+
         <div class="flex justify-center mt-2">
             <div>
                 <label class="text-blue-800 dark:text-blue-200">Side B:</label>
-                <input type="number" min="1" name="sideB" step="any" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" required />
+                <input asp-for="SideB" type="number" value="@Model?.SideB" step="any" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
+                <span asp-validation-for="SideB" class="text-red-800 text-sm block ml-16"></span>
             </div>
         </div>
-        
+
         <div class="flex justify-center mt-2 -ml-10">
             <div>
                 <label class="text-blue-800 dark:text-blue-200">Hypotenuse:</label>
-                <input type="text" value="@Model" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" readonly />
+                <input asp-for="Hypotenuse" type="text" value="@Model?.Hypotenuse" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" readonly/>
             </div>
         </div>
 
         <div class="flex justify-center mt-5 ml-32">
             <div>
-                <input type="submit" class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5" value="Calculate" />
+                <input type="submit" class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5" value="Calculate"/>
             </div>
         </div>
     </div>
