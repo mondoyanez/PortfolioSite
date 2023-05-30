@@ -37,16 +37,18 @@ Check out the live demo of the project: [Portfolio](https://ayportfolio.azureweb
 
 ### TLDR
 
-The web application allows users to switch between Dark mode and Light mode. It features a navbar with links to the Index page, Acknowledgments page, and individual projects. Users can explore both deployed Team Projects and individual projects, with a separate link to the GitHub repository provided in the footer.
+The web application allows users to switch between Dark mode and Light mode. It features a navbar with links to different pages. Users can explore both deployed Team Projects and individual projects, with a separate link to the GitHub repository and Linkedin provided in the footer.
 
 ### Header 
 - User can change the theme to Dark mode or Light mode if they chose to by clicking the icon on the top right.
 - The AY link in the navbar will take the user back to the Index page containing all the projects.
 - The Projects link in the navbar will take the user back to the Index page containing all the projects.
+- Resume link in the navbar will take the user to the Resume page, where they can view my Resume instide a viewer and download it as well by poping out the window on the top right which will open the resume in a seperate tab allowing them to print out the resume or print it as a pdf which then is saved on their device that they are currently viewing the page from.
 - The Acknowledgments link in the navbar will take the user to the Acknowledgements page, crediting the sources that were used to build the web application.
 
 ### Footer
 - In the footer in the bottom right is a link to the GitHub repo page, when clicked it will open the repository on a seperate tab.
+- Next to the GitHub icon is a Linkedin icon that will take the user to my Linkedin profile that will be opened on a seperate tab if they wish to visit my Linkedin.
 
 ### Oregon Turtles
 - A description of the project and when I was apart of the team is included, the VIEW button on the bottom of the card navigates the user to the deployed Oregon Turtles
@@ -56,8 +58,10 @@ site so that the user the view the page if they wish to view it.
 - A description of the project and when I was apart of the team is included, the VIEW button on the bottom of the card takes the user to the deployed site so that the user
 the view the deployed page in action and try out any of the features on the website.
 
-### Little Person Computer
-- Still being developed
+### Pythagorean Theorem Calculator
+- User enters a postive value greater than 0.00001 for Side A and Side B
+- User then clicks the calculate button
+- User is given the hypotenuse given a triangle with those two legs
 
 ### Conga Line Lab
 - Still being developed
@@ -78,6 +82,7 @@ the view the deployed page in action and try out any of the features on the webs
 
 - Projects: Index page that has my projects in one page for the user to be able to navigate to each project from one location.
 - Light/Dark mode: Light/Dark mode that changes the theme of the page for the user to theme that they prefer to use.
+- Resume: User can view my Resume and download it as well by poping out the window that will allow them to download the resume.
 - Acknowledgements: Credits page of where all the sources for the project were acquired
 
 ## Documentation
