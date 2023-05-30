@@ -9,9 +9,9 @@
 </div>
 
 <div class="flex justify-center mt-20">
-    <div class="relative">
+    <div>
         <img src="https://em-content.zobj.net/thumbs/160/microsoft/319/triangular-ruler_1f4d0.png" alt="Triangle"/>
-        <div class="absolute">
+        <div>
             <p class="text-lg text-blue-800 dark:text-blue-200 -mt-24 -ml-14">Side A</p>
             <p class="text-lg text-blue-800 dark:text-blue-200 mt-16 ml-12">Side B</p>
             <p class="text-lg text-blue-800 dark:text-blue-200 -mt-36 ml-24">Hypotenuse</p>
@@ -22,7 +22,7 @@
 <form asp-controller="Pythagorean" asp-action="Index" method="post">
     <div asp-validation-summary="ModelOnly" class="text-red-800 text-sm"></div>
     <div class="-ml-16">
-        <div class="flex justify-center mt-20">
+        <div class="flex justify-center mt-44">
             <div>
                 <label class="text-blue-800 dark:text-blue-200">Side A:</label>
                 <input asp-for="SideA" type="number" value="@Model?.SideA" step="any" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
