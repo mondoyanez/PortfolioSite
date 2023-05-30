@@ -164,4 +164,78 @@ public class PythagoreanModelValidator_Tests
         // Assert
         Assert.That(mv.Valid, Is.False);
     }
+
+    [Test]
+    public void ValidPythagorean_SideBIsZero_Invalid()
+    {
+        // Arrange
+        Pythagorean pythagorean = MakeValidPythagorean();
+        pythagorean.SideB = 0;
+
+        // Act
+        ModelValidator mv = new ModelValidator(pythagorean);
+
+        // Assert
+        Assert.That(mv.Valid, Is.False);
+    }
+
+    [Test]
+    public void ValidPythagorean_SideBIsZeroDecimal_IsValid()
+    {
+        // Arrange
+        Pythagorean pythagorean = MakeValidPythagorean();
+        pythagorean.SideB = 0.00001;
+
+        // Act
+        ModelValidator mv = new ModelValidator(pythagorean);
+
+        // Assert
+        Assert.That(mv.Valid, Is.True);
+    }
+
+    [Test]
+    public void ValidPythagorean_SideBExceedsMinRange_IsInvalid()
+    {
+        // Arrange
+        Pythagorean pythagorean = MakeValidPythagorean();
+        pythagorean.SideB = 0.000001;
+
+        // Act
+        ModelValidator mv = new ModelValidator(pythagorean);
+
+        // Assert
+        Assert.That(mv.Valid, Is.False);
+    }
+
+    [Test]
+    public void ValidPythagorean_SideBIsMaxRange_IsValid()
+    {
+        // Arrange
+        Pythagorean pythagorean = MakeValidPythagorean();
+        pythagorean.SideB = Double.MaxValue;
+
+        // Act
+        ModelValidator mv = new ModelValidator(pythagorean);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(pythagorean.SideB, Is.EqualTo(Double.MaxValue));
+        });
+    }
+
+    [Test]
+    public void ValidPythagorean_SideBIsNegative_IsInvalid()
+    {
+        // Arrange
+        Pythagorean pythagorean = MakeValidPythagorean();
+        pythagorean.SideB = -1;
+
+        // Act
+        ModelValidator mv = new ModelValidator(pythagorean);
+
+        // Assert
+        Assert.That(mv.Valid, Is.False);
+    }
 }
