@@ -28,9 +28,9 @@ public class CongaLine
         _line.RemoveAll(z => z == Char.ToUpper(zombie));
     }
 
-    public void YourDone()
+    public void YourDone(char zombie)
     {
-        throw new NotImplementedException();
+        _line.Remove(Char.ToUpper(zombie));
     }
 
     public void Brains()

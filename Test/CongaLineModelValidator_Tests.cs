@@ -768,4 +768,188 @@ public class CongaLineModelValidator_Tests
             Assert.That(congaLineString, Is.EqualTo("R, Y, B, G, M, M, G, B, Y, R, R, Y, B, G, M, M, G, B, Y, R"));
         });
     }
+
+    [Test]
+    public void ValidCongaLine_YourDoneWithValidInputForYellowZombieAsUppercase_ShouldRemoveFirstInstanceOfYellowZombie()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        congaLine.Caboose('R');
+        congaLine.Caboose('Y');
+        congaLine.Caboose('B');
+        congaLine.Caboose('G');
+        congaLine.Caboose('M');
+
+        congaLine.Caboose('M');
+        congaLine.Caboose('G');
+        congaLine.Caboose('B');
+        congaLine.Caboose('Y');
+        congaLine.Caboose('R');
+
+        congaLine.Engine('R');
+        congaLine.Engine('Y');
+        congaLine.Engine('B');
+        congaLine.Engine('G');
+        congaLine.Engine('M');
+
+        congaLine.Engine('M');
+        congaLine.Engine('G');
+        congaLine.Engine('B');
+        congaLine.Engine('Y');
+        congaLine.Engine('R');
+
+        // Act
+        congaLine.YourDone('Y');
+        int count = congaLine.CongaLineLength();
+        string congaLineString = congaLine.ToString();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(19));
+            Assert.That(congaLineString, Is.EqualTo("R, B, G, M, M, G, B, Y, R, R, Y, B, G, M, M, G, B, Y, R"));
+        });
+    }
+
+    [Test]
+    public void ValidCongaLine_YourDoneWithValidInputForGreenZombieAsLowercase_ShouldRemoveFirstInstanceOfGreenZombie()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        congaLine.Caboose('R');
+        congaLine.Caboose('Y');
+        congaLine.Caboose('B');
+        congaLine.Caboose('G');
+        congaLine.Caboose('M');
+
+        congaLine.Caboose('M');
+        congaLine.Caboose('G');
+        congaLine.Caboose('B');
+        congaLine.Caboose('Y');
+        congaLine.Caboose('R');
+
+        congaLine.Engine('R');
+        congaLine.Engine('Y');
+        congaLine.Engine('B');
+        congaLine.Engine('G');
+        congaLine.Engine('M');
+
+        congaLine.Engine('M');
+        congaLine.Engine('G');
+        congaLine.Engine('B');
+        congaLine.Engine('Y');
+        congaLine.Engine('R');
+
+        // Act
+        congaLine.YourDone('g');
+        int count = congaLine.CongaLineLength();
+        string congaLineString = congaLine.ToString();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(19));
+            Assert.That(congaLineString, Is.EqualTo("R, Y, B, M, M, G, B, Y, R, R, Y, B, G, M, M, G, B, Y, R"));
+        });
+    }
+
+    [Test]
+    public void ValidCongaLine_YourDoneWithInValidInputAsUppercase_ShouldNotRemoveAnyInstances()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        congaLine.Caboose('R');
+        congaLine.Caboose('Y');
+        congaLine.Caboose('B');
+        congaLine.Caboose('G');
+        congaLine.Caboose('M');
+
+        congaLine.Caboose('M');
+        congaLine.Caboose('G');
+        congaLine.Caboose('B');
+        congaLine.Caboose('Y');
+        congaLine.Caboose('R');
+
+        congaLine.Engine('R');
+        congaLine.Engine('Y');
+        congaLine.Engine('B');
+        congaLine.Engine('G');
+        congaLine.Engine('M');
+
+        congaLine.Engine('M');
+        congaLine.Engine('G');
+        congaLine.Engine('B');
+        congaLine.Engine('Y');
+        congaLine.Engine('R');
+
+        // Act
+        congaLine.YourDone('U');
+        int count = congaLine.CongaLineLength();
+        string congaLineString = congaLine.ToString();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(20));
+            Assert.That(congaLineString, Is.EqualTo("R, Y, B, G, M, M, G, B, Y, R, R, Y, B, G, M, M, G, B, Y, R"));
+        });
+    }
+
+    [Test]
+    public void ValidCongaLine_YourDoneWithInValidInputAsLowercase_ShouldNotRemoveAnyInstances()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        congaLine.Caboose('R');
+        congaLine.Caboose('Y');
+        congaLine.Caboose('B');
+        congaLine.Caboose('G');
+        congaLine.Caboose('M');
+
+        congaLine.Caboose('M');
+        congaLine.Caboose('G');
+        congaLine.Caboose('B');
+        congaLine.Caboose('Y');
+        congaLine.Caboose('R');
+
+        congaLine.Engine('R');
+        congaLine.Engine('Y');
+        congaLine.Engine('B');
+        congaLine.Engine('G');
+        congaLine.Engine('M');
+
+        congaLine.Engine('M');
+        congaLine.Engine('G');
+        congaLine.Engine('B');
+        congaLine.Engine('Y');
+        congaLine.Engine('R');
+
+        // Act
+        congaLine.YourDone('t');
+        int count = congaLine.CongaLineLength();
+        string congaLineString = congaLine.ToString();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(20));
+            Assert.That(congaLineString, Is.EqualTo("R, Y, B, G, M, M, G, B, Y, R, R, Y, B, G, M, M, G, B, Y, R"));
+        });
+    }
 }
