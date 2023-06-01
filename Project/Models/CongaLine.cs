@@ -3,9 +3,9 @@ public class CongaLine
 {
     private List<char> Line = new();
 
-    public void Engine()
+    public void Engine(char zombie)
     {
-        throw new NotImplementedException();
+        Line.Insert(0, zombie);
     }
 
     public void Caboose()
