@@ -36,7 +36,7 @@ public class CongaLineModelValidator_Tests
         Assert.Multiple(() =>
         {
             Assert.That(mv.Valid, Is.True);
-            Assert.That(mv.ContainsFailureFor("Line"), Is.False);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
             Assert.That(congaLineString, Is.EqualTo("No zombies in line"));
         });
     }
@@ -55,7 +55,7 @@ public class CongaLineModelValidator_Tests
         Assert.Multiple(() =>
         {
             Assert.That(mv.Valid, Is.True);
-            Assert.That(mv.ContainsFailureFor("Line"), Is.False);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
             Assert.That(count, Is.EqualTo(0));
         });
     }
@@ -76,7 +76,7 @@ public class CongaLineModelValidator_Tests
         Assert.Multiple(() =>
         {
             Assert.That(mv.Valid, Is.True);
-            Assert.That(mv.ContainsFailureFor("Line"), Is.False);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
             Assert.That(count, Is.EqualTo(1));
             Assert.That(congaLineString, Is.EqualTo("R"));
         });
@@ -99,7 +99,7 @@ public class CongaLineModelValidator_Tests
         Assert.Multiple(() =>
         {
             Assert.That(mv.Valid, Is.True);
-            Assert.That(mv.ContainsFailureFor("Line"), Is.False);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
             Assert.That(count, Is.EqualTo(2));
             Assert.That(congaLineString, Is.EqualTo("M, R"));
         });
@@ -122,9 +122,56 @@ public class CongaLineModelValidator_Tests
         Assert.Multiple(() =>
         {
             Assert.That(mv.Valid, Is.True);
-            Assert.That(mv.ContainsFailureFor("Line"), Is.False);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
             Assert.That(count, Is.EqualTo(2));
             Assert.That(congaLineString, Is.EqualTo("M, R"));
+        });
+    }
+
+    [Test]
+    public void ValidCongaLine_EngineInvalidInputAsUppercase_ShouldNotSuccessfullyAddToCongaLine()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        // Act
+        congaLine.Engine('Z');
+        int count = congaLine.CongaLineLength();
+        string congaLineString = congaLine.ToString();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(0));
+            Assert.That(congaLineString, Is.EqualTo("No zombies in line"));
+        });
+    }
+
+    [Test]
+    public void ValidCongaLine_EngineMixOfValidAndInvalid_ShouldAddAndNotAddToCongaLine()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        // Act
+        congaLine.Engine('Z');
+        congaLine.Engine('R');
+        congaLine.Engine('a');
+        congaLine.Engine('y');
+        int count = congaLine.CongaLineLength();
+        string congaLineString = congaLine.ToString();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(2));
+            Assert.That(congaLineString, Is.EqualTo("Y, R"));
         });
     }
 }

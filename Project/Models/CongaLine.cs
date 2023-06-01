@@ -1,11 +1,13 @@
 namespace Portfolio.Models;
 public class CongaLine
 {
-    private List<char> Line = new();
+    private readonly List<char> _line = new();
+    private readonly List<char> _allZombies = new() { 'R', 'Y', 'G', 'B', 'M', 'C' };
 
     public void Engine(char zombie)
     {
-        Line.Insert(0, Char.ToUpper(zombie));
+        if (_allZombies.Contains(Char.ToUpper(zombie)))
+            _line.Insert(0, Char.ToUpper(zombie));
     }
 
     public void Caboose()
@@ -40,11 +42,11 @@ public class CongaLine
 
     public int CongaLineLength()
     {
-        return Line.Count;
+        return _line.Count;
     }
 
     public override string ToString()
     {
-        return Line.Any() ? string.Join(", ", Line.ToArray()) : "No zombies in line";
+        return _line.Any() ? string.Join(", ", _line.ToArray()) : "No zombies in line";
     }
 }
