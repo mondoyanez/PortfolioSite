@@ -1,7 +1,7 @@
 namespace Portfolio.Models;
 public class CongaLine
 {
-    private List<char> Line = new List<char>();
+    private List<char> Line = new();
 
     public void Engine()
     {
@@ -36,5 +36,10 @@ public class CongaLine
     public void RainbowBrains()
     {
         throw new NotImplementedException();
+    }
+
+    public override string ToString()
+    {
+        return Line.Any() ? string.Join(",", Line.ToArray()) : "No zombies in line";
     }
 }
