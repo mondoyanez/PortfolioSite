@@ -101,7 +101,30 @@ public class CongaLineModelValidator_Tests
             Assert.That(mv.Valid, Is.True);
             Assert.That(mv.ContainsFailureFor("Line"), Is.False);
             Assert.That(count, Is.EqualTo(2));
-            Assert.That(congaLineString, Is.EqualTo("M,R"));
+            Assert.That(congaLineString, Is.EqualTo("M, R"));
+        });
+    }
+
+    [Test]
+    public void ValidCongaLine_MultipleEngineValidInputAsLowercase_ShouldSuccessfullyAddToCongaLine()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        // Act
+        congaLine.Engine('r');
+        congaLine.Engine('m');
+        int count = congaLine.CongaLineLength();
+        string congaLineString = congaLine.ToString();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("Line"), Is.False);
+            Assert.That(count, Is.EqualTo(2));
+            Assert.That(congaLineString, Is.EqualTo("M, R"));
         });
     }
 }

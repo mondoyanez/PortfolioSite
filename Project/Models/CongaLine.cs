@@ -5,7 +5,7 @@ public class CongaLine
 
     public void Engine(char zombie)
     {
-        Line.Insert(0, zombie);
+        Line.Insert(0, Char.ToUpper(zombie));
     }
 
     public void Caboose()
@@ -45,6 +45,6 @@ public class CongaLine
 
     public override string ToString()
     {
-        return Line.Any() ? string.Join(",", Line.ToArray()) : "No zombies in line";
+        return Line.Any() ? string.Join(", ", Line.ToArray()) : "No zombies in line";
     }
 }
