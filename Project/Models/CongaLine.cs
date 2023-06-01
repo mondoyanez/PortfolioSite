@@ -38,6 +38,11 @@ public class CongaLine
         throw new NotImplementedException();
     }
 
+    public int CongaLineLength()
+    {
+        return Line.Count;
+    }
+
     public override string ToString()
     {
         return Line.Any() ? string.Join(",", Line.ToArray()) : "No zombies in line";
