@@ -23,9 +23,9 @@ public class CongaLine
             _line.Insert(position - 1, Char.ToUpper(zombie));
     }
 
-    public void EveryOneOut()
+    public void EveryOneOut(char zombie)
     {
-        throw new NotImplementedException();
+        _line.RemoveAll(z => z == Char.ToUpper(zombie));
     }
 
     public void YourDone()
