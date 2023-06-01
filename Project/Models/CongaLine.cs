@@ -16,9 +16,11 @@ public class CongaLine
             _line.Add(Char.ToUpper(zombie));
     }
 
-    public void JumpInLine()
+    public void JumpInLine(int position, char zombie)
     {
-        throw new NotImplementedException();
+        if (position - 1 >= _line.Count + 1 || position <= 0) return;
+        if (_allZombies.Contains(Char.ToUpper(zombie)))
+            _line.Insert(position - 1, Char.ToUpper(zombie));
     }
 
     public void EveryOneOut()
