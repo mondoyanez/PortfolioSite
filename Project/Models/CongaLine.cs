@@ -10,9 +10,10 @@ public class CongaLine
             _line.Insert(0, Char.ToUpper(zombie));
     }
 
-    public void Caboose()
+    public void Caboose(char zombie)
     {
-        throw new NotImplementedException();
+        if (_allZombies.Contains(Char.ToUpper(zombie)))
+            _line.Add(Char.ToUpper(zombie));
     }
 
     public void JumpInLine()
