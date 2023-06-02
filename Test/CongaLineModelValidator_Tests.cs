@@ -994,4 +994,45 @@ public class CongaLineModelValidator_Tests
             Assert.That(count, Is.EqualTo(20));
         });
     }
+
+    [Test]
+    public void ValidCongaLine_RainbowBrainsMethodOnce_ShouldAddZombiesShuffledToEndOfCongaLine()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        // Act
+        congaLine.RainbowBrains();
+        int count = congaLine.CongaLineLength();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(6));
+        });
+    }
+
+    [Test]
+    public void ValidCongaLine_RainbowBrainsMethodTenTimes_ShouldAddZombiesShuffledToEndOfCongaLine()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        // Act
+        for (int i = 0; i < 10; i++)
+            congaLine.RainbowBrains();
+        int count = congaLine.CongaLineLength();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(60));
+        });
+    }
 }

@@ -45,7 +45,11 @@ public class CongaLine
 
     public void RainbowBrains()
     {
-        throw new NotImplementedException();
+        Random r = new();
+        List<char> zombiesShuffled = _allZombies.OrderBy(_ => r.Next()).ToList();
+
+        foreach (var zombie in zombiesShuffled)
+            Caboose(zombie);
     }
 
     public int CongaLineLength()
