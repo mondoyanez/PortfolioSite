@@ -35,7 +35,12 @@ public class CongaLine
 
     public void Brains()
     {
-        throw new NotImplementedException();
+        Random r = new();
+        int randomIndex = r.Next(0, _allZombies.Count);
+        char zombieChosen = _allZombies[randomIndex];
+
+        Engine(zombieChosen);
+        Caboose(zombieChosen);
     }
 
     public void RainbowBrains()

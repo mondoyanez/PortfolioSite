@@ -952,4 +952,46 @@ public class CongaLineModelValidator_Tests
             Assert.That(congaLineString, Is.EqualTo("R, Y, B, G, M, M, G, B, Y, R, R, Y, B, G, M, M, G, B, Y, R"));
         });
     }
+
+    [Test]
+    public void ValidCongaLine_BrainsMethodOnce_ShouldAddZombieChosenToFrontAndEndOfCongaLine()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        // Act
+        congaLine.Brains();
+        int count = congaLine.CongaLineLength();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(2));
+        });
+    }
+
+    [Test]
+    public void ValidCongaLine_BrainsMethodTenTimes_ShouldAddZombieChosenToFrontAndEndOfCongaLine()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        // Act
+        for (int i = 0; i < 10; i++)
+            congaLine.Brains();
+
+        int count = congaLine.CongaLineLength();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(20));
+        });
+    }
 }
