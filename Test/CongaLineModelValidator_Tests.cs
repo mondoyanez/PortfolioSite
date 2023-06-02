@@ -23,6 +23,29 @@ public class CongaLineModelValidator_Tests
     }
 
     [Test]
+    public void ValidCongaLine_WithAlreadyExistingCongaLine_IsValid()
+    {
+        // Arrange
+        List<char> existingCongaLine = new List<char>() { 'R', 'M', 'Y', 'B', 'R', 'C', 'G', 'R' };
+
+        // Act
+        CongaLine congaLine = new CongaLine(existingCongaLine);
+        String? congaLineString = congaLine.ToString();
+        int? count = congaLine.CongaLineLength();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(8));
+            Assert.That(congaLineString, Is.EqualTo("R, M, Y, B, R, C, G, R"));
+        });
+
+    }
+
+    [Test]
     public void ValidCongaLine_AsStringAsNull()
     {
         // Arrange

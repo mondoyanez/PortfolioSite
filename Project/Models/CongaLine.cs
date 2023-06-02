@@ -1,8 +1,18 @@
 namespace Portfolio.Models;
 public class CongaLine
 {
-    private readonly List<char> _line = new();
+    private readonly List<char> _line;
     private readonly List<char> _allZombies = new() { 'R', 'Y', 'G', 'B', 'M', 'C' };
+
+    public CongaLine()
+    {
+        _line = new List<char>();
+    }
+
+    public CongaLine(List<char> line)
+    {
+        _line = line;
+    }
 
     public void Engine(char zombie)
     {

@@ -15,9 +15,22 @@
 
 <div class="flex items-center justify-center mt-5">
     <div class="w-1/2 bg-slate-300 dark:bg-slate-700">
-      <p class="font-medium text-blue-800 dark:text-blue-200 py-5 text-center">
-        @Model.CongaLine.ToString()
-      </p>
+        <p class="font-medium text-blue-800 dark:text-blue-200 py-5 text-center">
+            @Model.CongaLine.ToString()
+        </p>
     </div>
 </div>
-  
+
+<form asp-controller="CongaLine" asp-action="Index" method="post">
+    <input type="hidden" name="congaLineString" value="@Model.CongaLine.ToString()" />
+    <select name="zombie">
+        <option value="">Select a Zombie</option>
+        <option value="B">Blue</option>
+        <option value="C">Cyan</option>
+        <option value="G">Green</option>
+        <option value="M">Magenta</option>
+        <option value="R">Red</option>
+        <option value="Y">Yellow</option>
+    </select>
+    <input type="submit" value="SUBMIT" />
+</form>
