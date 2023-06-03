@@ -8,12 +8,24 @@
     <h1 class="font-medium text-3xl text-blue-800 dark:text-blue-200">Conga Line</h1>
 </div>
 
-<div class="text-center mt-20">
-    <h3 class="font-medium text-xl text-blue-800 dark:text-blue-200">Current Conga Line: </h3>
-    
+<div class="flex items-center justify-center my-10">
+    <div class="border border-solid bg-blue-100 dark:bg-blue-900 border-blue-800 dark:border-blue-200 w-1/2 p-5">
+        <h2 class="font-bold text-2xl text-blue-800 dark:text-blue-200 mb-2 underline text-center">ACTIONS</h2>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Engine! - This zombie becomes the first zombie in the conga line</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Caboose! - This zombie becomes the last zombie in the conga line</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Jump In The Line! - This zombie joins the conga line at any position of the conga [1-End]</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Everyone Out! - All matching zombies are removed from the conga line</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">You're Done! - First matching zombie is removed from the conga line</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Brains! - One zombie of the same color is adding to the beginning and end of the conga line</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Rainbow Brains! - Zombie of each color in random order is added to the end of the conga line</h4>
+    </div>
 </div>
 
-<div class="flex items-center justify-center mt-5">
+<div class="text-center">
+    <h3 class="font-medium text-xl text-blue-800 dark:text-blue-200">Current Conga Line: </h3>
+</div>
+
+<div class="flex items-center justify-center mb-20 mt-2">
     <div class="w-1/2 bg-slate-300 dark:bg-slate-700">
         <p class="font-medium text-blue-800 dark:text-blue-200 py-5 text-center">
             @Model.CongaLine.ToString()
