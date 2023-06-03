@@ -30,6 +30,9 @@ public class CongaLineController : Controller
             };
         }
 
+        if (vm.CurrentRound % 5 == 0)
+            vm.CongaLine.TimesUp();
+
         if (vm.CongaLine.CongaLineLength() > 0)
         {
             return View(vm);
