@@ -62,6 +62,15 @@ public class CongaLine
             Caboose(zombie);
     }
 
+    public void TimesUp()
+    {
+        if (!_line.Any())
+            throw new Exception("Conga Line is Empty");
+
+        _line.RemoveAt(CongaLineLength() - 1);
+        _line.RemoveAt(0);
+    }
+
     public int CongaLineLength()
     {
         return _line.Count;

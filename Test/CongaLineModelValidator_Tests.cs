@@ -1058,4 +1058,149 @@ public class CongaLineModelValidator_Tests
             Assert.That(count, Is.EqualTo(60));
         });
     }
+
+    [Test]
+    public void ValidCongaLine_TimesUpForValidCongaLine_ShouldSuccessfullyRemoveFrontAndBackOfCongaLine()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+        congaLine.RainbowBrains();
+        congaLine.RainbowBrains();
+
+        // Act
+        congaLine.TimesUp();
+        int count = congaLine.CongaLineLength();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(10));
+        });
+    }
+
+    [Test]
+    public void ValidCongaLine_TimesUpForValidCongaLineUsingCabooseAndEngine_ShouldSuccessfullyRemoveFrontAndBackOfCongaLine()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        congaLine.Caboose('R');
+        congaLine.Caboose('Y');
+        congaLine.Caboose('B');
+        congaLine.Caboose('G');
+        congaLine.Caboose('M');
+
+        congaLine.Caboose('M');
+        congaLine.Caboose('G');
+        congaLine.Caboose('B');
+        congaLine.Caboose('Y');
+        congaLine.Caboose('R');
+
+        congaLine.Engine('R');
+        congaLine.Engine('Y');
+        congaLine.Engine('B');
+        congaLine.Engine('G');
+        congaLine.Engine('M');
+
+        congaLine.Engine('M');
+        congaLine.Engine('G');
+        congaLine.Engine('B');
+        congaLine.Engine('Y');
+        congaLine.Engine('R');
+
+        // Act
+        congaLine.TimesUp();
+        int count = congaLine.CongaLineLength();
+        string congaLineString = congaLine.ToString();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(18));
+            Assert.That(congaLineString, Is.EqualTo("Y, B, G, M, M, G, B, Y, R, R, Y, B, G, M, M, G, B, Y"));
+        });
+    }
+
+    [Test]
+    public void ValidCongaLine_TimesUpWithAlreadyExistingCongaLine_ShouldSuccessfullyRemoveFrontAndBackOfCongaLine()
+    {
+        // Arrange
+        List<char> existingCongaLine = new List<char>() { 'R', 'M', 'Y', 'B', 'R', 'C', 'G', 'R' };
+        CongaLine congaLine = new CongaLine(existingCongaLine);
+
+        // Act
+        congaLine.TimesUp();
+        string? congaLineString = congaLine.ToString();
+        int? count = congaLine.CongaLineLength();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(6));
+            Assert.That(congaLineString, Is.EqualTo("M, Y, B, R, C, G"));
+        });
+
+    }
+
+    [Test]
+    public void ValidCongaLine_TimesUpForValidCongaLineRanMultipleTimes_ShouldSuccessfullyRemoveFrontAndBackOfCongaLine()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+        congaLine.RainbowBrains();
+        congaLine.RainbowBrains();
+
+        // Act
+        congaLine.TimesUp();
+        congaLine.TimesUp();
+        congaLine.TimesUp();
+        int count = congaLine.CongaLineLength();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(6));
+        });
+    }
+
+    [Test]
+    public void ValidCongaLine_TimesUpForEmptyCongaLine_ShouldThrowException()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        // Act/Assert
+        Assert.Throws<Exception>(() => congaLine.TimesUp());
+    }
+
+    [Test]
+    public void ValidCongaLine_CongaLineLengthEmptyCongaLine_ShouldReturnZero()
+    {
+        // Arrange
+        CongaLine congaLine = MakeValidCongaLine();
+
+        // Act
+        int count = congaLine.CongaLineLength();
+        ModelValidator mv = new ModelValidator(congaLine);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("_line"), Is.False);
+            Assert.That(count, Is.EqualTo(0));
+        });
+    }
 }
