@@ -77,6 +77,6 @@ public class CongaLineController : Controller
 
         CongaLineVM updatedVm = new CongaLineVM(currentCongaLine);
 
-        return RedirectToAction("Index", new { vm = updatedVm, congaLineString });
+        return RedirectToAction("Index", new { vm = updatedVm, congaLineString = currentCongaLine.ToString() });
     }
 }
