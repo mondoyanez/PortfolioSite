@@ -10,6 +10,12 @@
 
 <div class="flex items-center justify-center my-10">
     <div class="border border-solid bg-blue-100 dark:bg-blue-900 border-blue-800 dark:border-blue-200 w-1/2 p-5">
+        <h2 class="font-bold text-2xl text-blue-800 dark:text-blue-200 mb-2 underline text-center">OVERVIEW</h2>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200 mb-2">
+            You begin the game with a random conga line of zombies, every 5 rounds the front and 
+            back of the conga line is removed. Actions available for the user to interact with the
+            conga line are listed below.
+        </h4>
         <h2 class="font-bold text-2xl text-blue-800 dark:text-blue-200 mb-2 underline text-center">ACTIONS</h2>
         <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Engine! - This zombie becomes the first zombie in the conga line</h4>
         <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Caboose! - This zombie becomes the last zombie in the conga line</h4>
@@ -22,7 +28,15 @@
 </div>
 
 <div class="text-center">
-    <h3 class="font-medium text-xl text-blue-800 dark:text-blue-200">Current Conga Line: </h3>
+    <h3 class="font-medium text-xl text-blue-800 dark:text-blue-200">Current Conga Line</h3>
+</div>
+
+<div class="text-center">
+    <h5 class="font-medium text-md text-blue-800 dark:text-blue-200">Conga Line Length: @Model.CongaLine.CongaLineLength()</h5>
+</div>
+
+<div class="text-center">
+    <h5 class="font-medium text-md text-blue-800 dark:text-blue-200">Current Round: @Model.CurrentRound</h5>
 </div>
 
 <div class="flex items-center justify-center mb-20 mt-2">
@@ -36,6 +50,7 @@
 <div class="flex items-center justify-center">
     <form asp-controller="CongaLine" asp-action="Index" method="post">
         <input type="hidden" name="congaLineString" value="@Model.CongaLine.ToString()" />
+        <input type="hidden" name="currentRound" value="@Model.CurrentRound" />
         <select name="action" class="bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200">
             <option value="">Select An Action</option>
             <option value="engine">Engine</option>
@@ -55,7 +70,7 @@
             <option value="R">Red</option>
             <option value="Y">Yellow</option>
         </select>
-        <input type="number" min="1" max= "@(Model.CongaLine.CongaLineLength() + 1)" name="index" class="bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
+        <input type="number" min="1" max= "@(Model.CongaLine.CongaLineLength() + 1)" name="index" value="1" class="bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
         <input type="submit" class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5" value="SUBMIT" />
     </form>
 </div>

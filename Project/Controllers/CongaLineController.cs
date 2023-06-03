@@ -10,21 +10,29 @@ public class CongaLineController : Controller
     private readonly Converter _converter = new();
 
     [HttpGet]
-    public IActionResult Index(CongaLineVM vm, string congaLineString)
+    public IActionResult Index(CongaLineVM vm, string congaLineString, int currentRound)
     {
         if (string.IsNullOrEmpty(congaLineString))
         {
-            vm = new CongaLineVM();
+            vm = new CongaLineVM
+            {
+                CurrentRound = 1
+            };
         }
         else
         {
             List<char> congaLineList = _converter.StringToListChar(congaLineString);
             CongaLine currentCongaLine = new CongaLine(congaLineList);
-            vm = new CongaLineVM(currentCongaLine);
+            vm = new CongaLineVM(currentCongaLine)
+            {
+                CurrentRound = currentRound
+            };
         }
 
         if (vm.CongaLine.CongaLineLength() > 0)
+        {
             return View(vm);
+        }
 
         vm.CongaLine.RainbowBrains();
         vm.CongaLine.Brains();
@@ -34,7 +42,7 @@ public class CongaLineController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Index(string congaLineString)
+    public IActionResult Index(string congaLineString, int currentRound)
     {
         List<char> congaLineList = _converter.StringToListChar(congaLineString);
         CongaLine currentCongaLine = new CongaLine(congaLineList);
@@ -75,8 +83,11 @@ public class CongaLineController : Controller
             }
         }
 
-        CongaLineVM updatedVm = new CongaLineVM(currentCongaLine);
+        CongaLineVM updatedVm = new CongaLineVM(currentCongaLine)
+        {
+            CurrentRound = currentRound + 1
+        };
 
-        return RedirectToAction("Index", new { vm = updatedVm, congaLineString = currentCongaLine.ToString() });
+        return RedirectToAction("Index", new { vm = updatedVm, congaLineString = currentCongaLine.ToString(), currentRound = currentRound + 1 });
     }
 }

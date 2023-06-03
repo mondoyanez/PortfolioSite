@@ -14,4 +14,5 @@ public class CongaLineVM
     }
 
     public CongaLine CongaLine { get; set; }
+    public int CurrentRound { get; set; }
 }
