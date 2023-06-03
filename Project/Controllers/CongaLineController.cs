@@ -8,6 +8,7 @@ namespace Portfolio.Controllers;
 public class CongaLineController : Controller
 {
     private readonly Converter _converter = new();
+    private readonly Random _random = new();
 
     [HttpGet]
     public IActionResult Index(CongaLineVM vm, string congaLineString, int currentRound)
@@ -34,8 +35,12 @@ public class CongaLineController : Controller
             return View(vm);
         }
 
+        int maxWave = _random.Next(2, 6);
+
         vm.CongaLine.RainbowBrains();
-        vm.CongaLine.Brains();
+
+        for(int i = 1; i <= maxWave; i++)
+            vm.CongaLine.Brains();
 
         return View(vm);
     }
