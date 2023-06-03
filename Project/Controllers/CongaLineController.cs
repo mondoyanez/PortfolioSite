@@ -11,8 +11,10 @@ public class CongaLineController : Controller
     private readonly Random _random = new();
 
     [HttpGet]
-    public IActionResult Index(CongaLineVM vm, string congaLineString, int currentRound)
+    public IActionResult Index(string congaLineString, int currentRound)
     {
+        CongaLineVM vm;
+
         if (string.IsNullOrEmpty(congaLineString))
         {
             vm = new CongaLineVM
@@ -48,9 +50,9 @@ public class CongaLineController : Controller
         return View(vm);
     }
 
-    [HttpPost]
+    [HttpPost, ActionName("Index")]
     [ValidateAntiForgeryToken]
-    public IActionResult Index(string congaLineString, int currentRound)
+    public IActionResult IndexPost(string congaLineString, int currentRound)
     {
         List<char> congaLineList = _converter.StringToListChar(congaLineString);
         CongaLine currentCongaLine = new CongaLine(congaLineList);
@@ -91,11 +93,6 @@ public class CongaLineController : Controller
             }
         }
 
-        CongaLineVM updatedVm = new CongaLineVM(currentCongaLine)
-        {
-            CurrentRound = currentRound + 1
-        };
-
-        return RedirectToAction("Index", new { vm = updatedVm, congaLineString = currentCongaLine.ToString(), currentRound = currentRound + 1 });
+        return RedirectToAction("Index", new { congaLineString = currentCongaLine.ToString(), currentRound = currentRound + 1 });
     }
 }
