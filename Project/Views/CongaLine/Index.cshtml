@@ -36,7 +36,7 @@
 <div class="flex items-center justify-center">
     <form asp-controller="CongaLine" asp-action="Index" method="post">
         <input type="hidden" name="congaLineString" value="@Model.CongaLine.ToString()" />
-        <select name="action">
+        <select name="action" class="bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200">
             <option value="">Select An Action</option>
             <option value="engine">Engine</option>
             <option value="caboose">Caboose</option>
@@ -46,7 +46,7 @@
             <option value="brains">Brains</option>
             <option value="rainbow">Rainbow Brains</option>
         </select>
-        <select name="zombie">
+        <select name="zombie" class="bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200">
             <option value="">Select a Zombie</option>
             <option value="B">Blue</option>
             <option value="C">Cyan</option>
@@ -55,7 +55,7 @@
             <option value="R">Red</option>
             <option value="Y">Yellow</option>
         </select>
-        <input type="number" min="1" max="@Model.CongaLine.CongaLineLength()" name="index" />
-        <input type="submit" value="SUBMIT" />
+        <input type="number" min="1" max= "@(Model.CongaLine.CongaLineLength() + 1)" name="index" class="bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
+        <input type="submit" class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5" value="SUBMIT" />
     </form>
 </div>
