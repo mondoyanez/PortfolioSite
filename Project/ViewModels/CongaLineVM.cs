@@ -3,5 +3,15 @@
 namespace Portfolio.ViewModels;
 public class CongaLineVM
 {
-    public CongaLine CongaLine { get; set; } = new();
+    public CongaLineVM()
+    {
+        CongaLine = new CongaLine();
+    }
+
+    public CongaLineVM(CongaLine congaLine)
+    {
+        CongaLine = congaLine;
+    }
+
+    public CongaLine CongaLine { get; set; }
 }

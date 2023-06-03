@@ -23,6 +23,16 @@
 
 <form asp-controller="CongaLine" asp-action="Index" method="post">
     <input type="hidden" name="congaLineString" value="@Model.CongaLine.ToString()" />
+    <select name="action">
+        <option value="">Select An Action</option>
+        <option value="engine">Engine</option>
+        <option value="caboose">Caboose</option>
+        <option value="jump">Jump In The Line</option>
+        <option value="out">Everyone Out</option>
+        <option value="done">You're Done</option>
+        <option value="brains">Brains</option>
+        <option value="rainbow">Rainbow Brains</option>
+    </select>
     <select name="zombie">
         <option value="">Select a Zombie</option>
         <option value="B">Blue</option>
@@ -32,5 +42,6 @@
         <option value="R">Red</option>
         <option value="Y">Yellow</option>
     </select>
+    <input type="number" min="1" max="@Model.CongaLine.CongaLineLength()" name="index" />
     <input type="submit" value="SUBMIT" />
 </form>
