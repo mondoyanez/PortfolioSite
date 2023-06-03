@@ -1,11 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Models;
 using Portfolio.ViewModels;
+using Portfolio.Utilities;
 
 namespace Portfolio.Controllers;
 
 public class CongaLineController : Controller
 {
+    private readonly Converter _converter = new();
+
     [HttpGet]
     public IActionResult Index(CongaLineVM vm, string congaLineString)
     {
@@ -15,7 +18,7 @@ public class CongaLineController : Controller
         }
         else
         {
-            List<char> congaLineList = congaLineString.Split(',').ToList().SelectMany(s => s).ToList();
+            List<char> congaLineList = _converter.StringToListChar(congaLineString);
             CongaLine currentCongaLine = new CongaLine(congaLineList);
             vm = new CongaLineVM(currentCongaLine);
         }
@@ -33,7 +36,7 @@ public class CongaLineController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Index(string congaLineString)
     {
-        List<char> congaLineList = congaLineString.Split(',').ToList().SelectMany(s => s).ToList();
+        List<char> congaLineList = _converter.StringToListChar(congaLineString);
         CongaLine currentCongaLine = new CongaLine(congaLineList);
 
         string zombieValue = Request.Form["zombie"];
