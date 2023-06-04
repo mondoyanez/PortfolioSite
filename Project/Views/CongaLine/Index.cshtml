@@ -1,7 +1,79 @@
+@model Portfolio.ViewModels.CongaLineVM
+
 @{
     ViewData["Title"] = "Conga Line";
 }
 
+<div class="flex items-center justify-between">
+    <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200 ml-40">Conga Line</h1>
+    <a href="https://github.com/mondoyanez/Portfolio/tree/main/lab_conga_line">
+        <input type="button" value="Original Repo" class="mx-5 bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" />
+    </a>
+</div>
+
+<div class="flex items-center justify-center my-10">
+    <div class="border border-solid bg-blue-100 dark:bg-blue-900 border-blue-800 dark:border-blue-200 w-1/2 p-5">
+        <h2 class="font-bold text-2xl text-blue-800 dark:text-blue-200 mb-2 underline text-center">OVERVIEW</h2>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200 mb-2">
+            You begin the game with a random conga line of zombies, every 5 rounds the front and 
+            back of the conga line is removed. Actions available for the user to interact with the
+            conga line are listed below.
+        </h4>
+        <h2 class="font-bold text-2xl text-blue-800 dark:text-blue-200 mb-2 underline text-center">ACTIONS</h2>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Engine! - This zombie becomes the first zombie in the conga line</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Caboose! - This zombie becomes the last zombie in the conga line</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Jump In The Line! - This zombie joins the conga line at any position of the conga [1-End]</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Everyone Out! - All matching zombies are removed from the conga line</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">You're Done! - First matching zombie is removed from the conga line</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Brains! - One zombie of the same color is adding to the beginning and end of the conga line</h4>
+        <h4 class="font-medium text-lg text-blue-800 dark:text-blue-200">Rainbow Brains! - Zombie of each color in random order is added to the end of the conga line</h4>
+    </div>
+</div>
+
 <div class="text-center">
-    <h1 class="font-medium text-3xl text-blue-800 dark:text-blue-200">Conga Line</h1>
+    <h3 class="font-medium text-xl text-blue-800 dark:text-blue-200">Current Conga Line</h3>
+</div>
+
+<div class="text-center">
+    <h5 class="font-medium text-md text-blue-800 dark:text-blue-200">Conga Line Length: @Model.CongaLine.CongaLineLength()</h5>
+</div>
+
+<div class="text-center">
+    <h5 class="font-medium text-md text-blue-800 dark:text-blue-200">Current Round: @Model.CurrentRound</h5>
+</div>
+
+<div class="flex items-center justify-center mb-20 mt-2">
+    <div class="w-1/2 bg-slate-300 dark:bg-slate-700 px-2">
+        <p class="font-medium text-blue-800 dark:text-blue-200 py-5 text-center">
+            @Model.CongaLine.ToString()
+        </p>
+    </div>
+</div>
+
+<div class="flex items-center justify-center px-10">
+    <form asp-controller="CongaLine" asp-action="Index" method="post">
+        <input type="hidden" name="congaLineString" value="@Model.CongaLine.ToString()" />
+        <input type="hidden" name="currentRound" value="@Model.CurrentRound" />
+        <select name="action" class="bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200">
+            <option value="">Select An Action</option>
+            <option value="engine">Engine</option>
+            <option value="caboose">Caboose</option>
+            <option value="jump">Jump In The Line</option>
+            <option value="out">Everyone Out</option>
+            <option value="done">You're Done</option>
+            <option value="brains">Brains</option>
+            <option value="rainbow">Rainbow Brains</option>
+        </select>
+        <select name="zombie" class="bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200">
+            <option value="">Select a Zombie</option>
+            <option value="B">Blue</option>
+            <option value="C">Cyan</option>
+            <option value="G">Green</option>
+            <option value="M">Magenta</option>
+            <option value="R">Red</option>
+            <option value="Y">Yellow</option>
+        </select>
+        <input type="number" min="1" max= "@(Model.CongaLine.CongaLineLength() + 1)" name="index" value="1" class="bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" />
+        <input type="submit" class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800 mt-5 ml-40 sm:mt-0 sm:ml-0" value="SUBMIT" />
+    </form>
 </div>

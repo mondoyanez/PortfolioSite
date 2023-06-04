@@ -63,8 +63,72 @@ the view the deployed page in action and try out any of the features on the webs
 - User then clicks the calculate button
 - User is given the hypotenuse given a triangle with those two legs
 
-### Conga Line Lab
-- Still being developed
+### Conga Line Lab ([Conga Line Lab PDF](./misc/Conga%20Line/Zombie%20Conga%20Line%20Lab.pdf))
+- User begins with a conga line of a length of either 10, 12, 14, or 16.
+- Every five rounds the front and the end of the conga line loses a zombie.
+- The game continues until the user wishes not to continue the game anymore.
+- Zombies that are available to add to the conga line are:
+    - Red
+    - Yellow
+    - Green
+    - Blue
+    - Magenta
+    - Cyan
+- Assume that this is the starting conga line: [R, Y, B, R, Y, M, C, G, Y, R]
+- The following are actions available for the user to use, valid sample input, and sample output.
+    - Engine! - This zombie becomes the first first in the conga line.
+        - Engine(Red)
+            - [R, R, Y, B, R, Y, M, C, G, Y, R]
+        - Engine(Blue)
+            - [B, R, Y, B, R, Y, M, C, G, Y, R]
+        - Engine(Green)
+            - [G, R, Y, B, R, Y, M, C, G, Y, R]
+    - Caboose! - This zombie becomes the last zombie in the conga line.
+        - Caboose(Magenta)
+            - [R, Y, B, R, Y, M, C, G, Y, R, M]
+        - Caboose(Yellow)
+            - [R, Y, B, R, Y, M, C, G, Y, R, Y]
+        - Caboose(Cyan)
+            - [R, Y, B, R, Y, M, C, G, Y, R, C]
+    - Jump in the Line! - This zombie joins the conga line at position X where X <= the length of the conga line + 1 [1 - 11].
+        - Jump(Yellow, 2)
+            - [R, Y, Y, B, R, Y, M, C, G, Y, R]
+        - Jump(Red, 5)
+            - [R, Y, B, R, R, Y, M, C, G, Y, R]
+        - Jump(Blue, 11)
+            - [R, Y, B, R, Y, M, C, G, Y, R, B]
+    - Everyone Out! - All matching zombies from the conga line are removed.
+        - Out(Red)
+            - [Y, B, Y, M, C, G, Y]
+        - Out (Yellow)
+            - [R, B, R, M, C, G, R]
+        - Out (Blue)
+            - [R, Y, R, Y, M, C, G, Y, R]
+    - You're Done! - First matching zombie from the conga line is removed.
+        - Done(Red)
+            - [Y, B, R, Y, M, C, G, Y, R]
+        - Done(Cyan)
+            - [R, Y, B, R, Y, M, G, Y, R]
+        - Done(Green)
+            - [R, Y, B, R, Y, M, C, Y, R]
+    - Brains! - One zombie is added to the front and back of the conga line of the same color.
+        - Brains()
+            - [B, R, Y, B, R, Y, M, C, G, Y, R, B]
+    - Rainbow Brains! - One zombie of each color is added to the end of the color line in random order.
+        - Rainbow()
+            - [R, Y, B, R, Y, M, C, G, Y, R, M, G, B, R, C, Y]
+- Conga Line Wireframe:<br>
+<img src="./misc/Conga Line/CongaLine_Index_WireFrame.png" title="Conga Line Wireframe" alt="Conga Line Wireframe Image" width="500" height="500"><br>
+- SAMPLE GAME
+    - Round 1 (Length: 16): [G, Y, C, R, G, R, M, Y, C, B, G, G, R, C, Y, G]
+        - Brains()
+    - Round 2 (Length: 18): [C, G, Y, C, R, G, R, M, Y, C, B, G, G, R, C, Y, G, C]
+        - Out(Green)
+    - Round 3 (Length: 13): [C, Y, C, R, R, M, Y, C, B, R, C, Y, C]
+        - Done(Red)
+    - Round 4 (Length: 12): [C, Y, C, R, M, Y, C, B, R, C, Y, C]
+        - Rainbow()
+    - Round 5 (Length: 16): [Y, C, R, M, Y, C, B, R, C, Y, C, G, R, B, M, Y]
 
 ### Dijkstra's Algorithm
 - Still being developed
