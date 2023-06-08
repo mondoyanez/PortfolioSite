@@ -130,7 +130,7 @@ the view the deployed page in action and try out any of the features on the webs
         - Rainbow()
     - Round 5 (Length: 16): [Y, C, R, M, Y, C, B, R, C, Y, C, G, R, B, M, Y]
 
-### Dijkstra's Algorithm
+### Color Interpolator
 - Still being developed
 
 ### Mad Lib's Generator
@@ -173,5 +173,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 If you have any questions, suggestions, or feedback, feel free to reach out:
-- Email: ayanez90@live.com
+- Email: yanezdevelopment95@gmail.com
 - LinkedIn: [Armando Yanez](https://www.linkedin.com/in/armando-yanez-706380178/)
