@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolio.Controllers;
 
-public class DijkstraController : Controller
+public class ColorInterpolator : Controller
 {
-    public DijkstraController()
+    public ColorInterpolator()
     {
 
     }
