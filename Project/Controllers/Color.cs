@@ -2,13 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Portfolio.Controllers;
 
-public class ColorInterpolator : Controller
+public class Color : Controller
 {
-    public ColorInterpolator()
-    {
-
-    }
-
     public IActionResult Index()
     {
         return View();
