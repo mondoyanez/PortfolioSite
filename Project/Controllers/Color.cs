@@ -8,4 +8,14 @@ public class Color : Controller
     {
         return View();
     }
+
+    public IActionResult RGBColor()
+    {
+        return View();
+    }
+
+    public IActionResult ColorInterpolation()
+    {
+        return View();
+    }
 }
