@@ -21,7 +21,35 @@ public class Color
 
     public Color HexToColor(string hex)
     {
-        throw new NotImplementedException();
+        string RGBR, RGBG, RGBB;
+        int r, g, b;
+
+        if (hex.Substring(0,1).Equals("#"))
+        {
+            RGBR = hex.Substring(1, 2);
+            r = Convert.ToInt32(RGBR, 16);
+
+            RGBG = hex.Substring(3, 2);
+            g = Convert.ToInt32(RGBG, 16);
+
+            RGBB = hex.Substring(5, 2);
+            b = Convert.ToInt32(RGBB, 16);
+        }
+        else 
+        {
+            RGBR = hex.Substring(0, 2);
+            r = Convert.ToInt32(RGBR, 16);
+
+            RGBG = hex.Substring(2, 2);
+            g = Convert.ToInt32(RGBG, 16);
+
+            RGBB = hex.Substring(4, 2);
+            b = Convert.ToInt32(RGBB, 16);
+        }
+
+        Color color = new Color() { red = r, green = g, blue = b };
+
+        return color;
     }
 
     public double GetHue()
