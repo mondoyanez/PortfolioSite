@@ -13,7 +13,10 @@ public class Color
 
     public string RGBToHex()
     {
-        throw new NotImplementedException();
+        if (red is < 0 or > 255 || green is < 0 or > 255 || blue is < 0 or > 255)
+            return "ZZZZZZ";
+        
+        return red?.ToString("X2") + green?.ToString("X2") + blue?.ToString("X2");
     }
 
     public Color HexToColor(string hex)
