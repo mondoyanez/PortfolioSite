@@ -206,4 +206,129 @@ public class ColorInterpolationModelValidator_Tests
             Assert.That(value, Is.EqualTo(94.9).Within(0.075));
         });
     }
+
+    [Test]
+    public void ValidColorInterpolation_ColorFromHSVWithHueOf240_ShouldReturnColorBlue()
+    {
+        // Arrange
+        double hue = 240;
+        double saturation = 100;
+        double value = 100;
+
+        // Act
+        Color actual = ColorInterpolation.ColorFromHSV(hue, saturation, value);
+        ModelValidator mv = new ModelValidator(actual);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("red"), Is.False);
+            Assert.That(mv.ContainsFailureFor("green"), Is.False);
+            Assert.That(mv.ContainsFailureFor("blue"), Is.False);
+            Assert.That(actual.red, Is.EqualTo(0));
+            Assert.That(actual.green, Is.EqualTo(0));
+            Assert.That(actual.blue, Is.EqualTo(255));
+        });
+    }
+
+    [Test]
+    public void ValidColorInterpolation_ColorFromHSVWithHueOf320_ShouldReturnColorLightPink()
+    {
+        // Arrange
+        double hue = 320;
+        double saturation = 41;
+        double value = 70;
+
+        // Act
+        Color actual = ColorInterpolation.ColorFromHSV(hue, saturation, value);
+        ModelValidator mv = new ModelValidator(actual);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("red"), Is.False);
+            Assert.That(mv.ContainsFailureFor("green"), Is.False);
+            Assert.That(mv.ContainsFailureFor("blue"), Is.False);
+            Assert.That(actual.red, Is.EqualTo(178));
+            Assert.That(actual.green, Is.EqualTo(105));
+            Assert.That(actual.blue, Is.EqualTo(154));
+        });
+    }
+
+    [Test]
+    public void ValidColorInterpolation_ColorFromHSVWithHueOf151_ShouldReturnColorTeal()
+    {
+        // Arrange
+        double hue = 151;
+        double saturation = 45;
+        double value = 65;
+
+        // Act
+        Color actual = ColorInterpolation.ColorFromHSV(hue, saturation, value);
+        ModelValidator mv = new ModelValidator(actual);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("red"), Is.False);
+            Assert.That(mv.ContainsFailureFor("green"), Is.False);
+            Assert.That(mv.ContainsFailureFor("blue"), Is.False);
+            Assert.That(actual.red, Is.EqualTo(91));
+            Assert.That(actual.green, Is.EqualTo(166));
+            Assert.That(actual.blue, Is.EqualTo(130));
+        });
+    }
+
+    [Test]
+    public void ValidColorInterpolation_ColorFromHSVWithHueOf119_ShouldReturnColorLime()
+    {
+        // Arrange
+        double hue = 119;
+        double saturation = 32;
+        double value = 84;
+
+        // Act
+        Color actual = ColorInterpolation.ColorFromHSV(hue, saturation, value);
+        ModelValidator mv = new ModelValidator(actual);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("red"), Is.False);
+            Assert.That(mv.ContainsFailureFor("green"), Is.False);
+            Assert.That(mv.ContainsFailureFor("blue"), Is.False);
+            Assert.That(actual.red, Is.EqualTo(147));
+            Assert.That(actual.green, Is.EqualTo(214));
+            Assert.That(actual.blue, Is.EqualTo(146));
+        });
+    }
+
+    [Test]
+    public void ValidColorInterpolation_ColorFromHSVWithHueOf14_ShouldReturnColorBlack()
+    {
+        // Arrange
+        double hue = 14;
+        double saturation = 14;
+        double value = 14;
+
+        // Act
+        Color actual = ColorInterpolation.ColorFromHSV(hue, saturation, value);
+        ModelValidator mv = new ModelValidator(actual);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("red"), Is.False);
+            Assert.That(mv.ContainsFailureFor("green"), Is.False);
+            Assert.That(mv.ContainsFailureFor("blue"), Is.False);
+            Assert.That(actual.red, Is.EqualTo(36));
+            Assert.That(actual.green, Is.EqualTo(32));
+            Assert.That(actual.blue, Is.EqualTo(31));
+        });
+    }
 }

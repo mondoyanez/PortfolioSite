@@ -28,6 +28,51 @@ public class ColorInterpolation: Color
 
     public static Color ColorFromHSV(double hue, double saturation, double value)
     {
-        throw new NotImplementedException();
+        double redPrime = 0, greenPrime = 0, bluePrime = 0;
+            double saturationDecimal = saturation / 100, valueDecimal = value / 100;
+
+            double c = valueDecimal * saturationDecimal;
+            double x = c * (1 - Math.Abs((hue / 60) % 2 - 1));
+            double m = valueDecimal - c;
+
+            if (hue >= 0 && hue < 60)
+            {
+                redPrime = c;
+                greenPrime = x;
+                bluePrime = 0;
+            }
+            else if (hue >= 60 && hue < 120)
+            {
+                redPrime = x;
+                greenPrime = c;
+                bluePrime = 0;
+            }
+            else if (hue >= 120 && hue < 180)
+            {
+                redPrime = 0;
+                greenPrime = c;
+                bluePrime = x;
+            }
+            else if (hue >= 180 && hue < 240)
+            {
+                redPrime = 0;
+                greenPrime = x;
+                bluePrime = c;
+            }
+            else if (hue >= 240 && hue < 300)
+            {
+                redPrime = x;
+                greenPrime = 0;
+                bluePrime = c;
+            }
+            else if (hue >= 300 && hue < 360)
+            {
+                redPrime = c;
+                greenPrime = 0;
+                bluePrime = x;
+            }
+
+            Color color = new Color { red = (int)Math.Round((redPrime + m) * 255), green = (int)Math.Round((greenPrime + m) * 255), blue = (int)Math.Round((bluePrime + m) * 255) };
+            return color;
     }
 }
