@@ -404,4 +404,139 @@ public class ColorModelValidator_Tests
             Assert.That(actual.blue, Is.EqualTo(100));
         });
     }
+
+    [Test]
+    public void ValidColor_GetHueColorBlue_ShouldReturnProperHueValue()
+    {
+        // Arrange
+        Color color = MakeValidColor();
+        color.red = 0;
+        color.green = 0;
+        color.blue = 255;
+
+        // Act
+        double actual = color.GetHue();
+        ModelValidator mv = new ModelValidator(actual);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("red"), Is.False);
+            Assert.That(mv.ContainsFailureFor("green"), Is.False);
+            Assert.That(mv.ContainsFailureFor("blue"), Is.False);
+            Assert.That(actual, Is.EqualTo(240));
+            Assert.That(color.red, Is.EqualTo(0));
+            Assert.That(color.green, Is.EqualTo(0));
+            Assert.That(color.blue, Is.EqualTo(255));
+        });
+    }
+
+    [Test]
+    public void ValidColor_GetHueColorRed_ShouldReturnProperHueValue()
+    {
+        // Arrange
+        Color color = MakeValidColor();
+        color.red = 255;
+        color.green = 0;
+        color.blue = 0;
+
+        // Act
+        double actual = color.GetHue();
+        ModelValidator mv = new ModelValidator(actual);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("red"), Is.False);
+            Assert.That(mv.ContainsFailureFor("green"), Is.False);
+            Assert.That(mv.ContainsFailureFor("blue"), Is.False);
+            Assert.That(actual, Is.EqualTo(0));
+            Assert.That(color.red, Is.EqualTo(255));
+            Assert.That(color.green, Is.EqualTo(0));
+            Assert.That(color.blue, Is.EqualTo(0));
+        });
+    }
+
+    [Test]
+    public void ValidColor_GetHueColorGreen_ShouldReturnProperHueValue()
+    {
+        // Arrange
+        Color color = MakeValidColor();
+        color.red = 0;
+        color.green = 255;
+        color.blue = 0;
+
+        // Act
+        double actual = color.GetHue();
+        ModelValidator mv = new ModelValidator(actual);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("red"), Is.False);
+            Assert.That(mv.ContainsFailureFor("green"), Is.False);
+            Assert.That(mv.ContainsFailureFor("blue"), Is.False);
+            Assert.That(actual, Is.EqualTo(120));
+            Assert.That(color.red, Is.EqualTo(0));
+            Assert.That(color.green, Is.EqualTo(255));
+            Assert.That(color.blue, Is.EqualTo(0));
+        });
+    }
+
+    [Test]
+    public void ValidColor_GetHueColorViolet_ShouldReturnProperHueValue()
+    {
+        // Arrange
+        Color color = MakeValidColor();
+        color.red = 140;
+        color.green = 110;
+        color.blue = 178;
+
+        // Act
+        double actual = color.GetHue();
+        ModelValidator mv = new ModelValidator(actual);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("red"), Is.False);
+            Assert.That(mv.ContainsFailureFor("green"), Is.False);
+            Assert.That(mv.ContainsFailureFor("blue"), Is.False);
+            Assert.That(actual, Is.EqualTo(266));
+            Assert.That(color.red, Is.EqualTo(140));
+            Assert.That(color.green, Is.EqualTo(110));
+            Assert.That(color.blue, Is.EqualTo(178));
+        });
+    }
+
+    [Test]
+    public void ValidColor_GetHueColorLightGreen_ShouldReturnProperHueValue()
+    {
+        // Arrange
+        Color color = MakeValidColor();
+        color.red = 126;
+        color.green = 130;
+        color.blue = 33;
+
+        // Act
+        double actual = color.GetHue();
+        ModelValidator mv = new ModelValidator(actual);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("red"), Is.False);
+            Assert.That(mv.ContainsFailureFor("green"), Is.False);
+            Assert.That(mv.ContainsFailureFor("blue"), Is.False);
+            Assert.That(actual, Is.EqualTo(62));
+            Assert.That(color.red, Is.EqualTo(126));
+            Assert.That(color.green, Is.EqualTo(130));
+            Assert.That(color.blue, Is.EqualTo(33));
+        });
+    }
 }

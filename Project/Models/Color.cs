@@ -54,6 +54,36 @@ public class Color
 
     public double GetHue()
     {
-        throw new NotImplementedException();
+        double hue = 0;
+
+        double redPrime = (double)red / 255;
+        double greenPrime = (double)green / 255;
+        double bluePrime = (double)blue / 255;
+
+        double colorMax = Math.Max(redPrime, Math.Max(greenPrime, bluePrime));
+        double colorMin = Math.Min(redPrime, Math.Min(greenPrime, bluePrime));
+
+        double difference = colorMax - colorMin;
+
+        if (difference.Equals(0))
+        {
+            hue = 0;
+        }
+        else if (colorMax.Equals(redPrime))
+        {
+            hue = Math.Round((greenPrime - bluePrime) / difference);
+            hue = hue % 6;
+            hue = hue * 60;
+        }
+        else if (colorMax.Equals(greenPrime))
+        {
+            hue = Math.Round(60 * (((bluePrime - redPrime) / difference) + 2));
+        }
+        else if (colorMax.Equals(bluePrime))
+        {
+            hue = Math.Round(60 * (((redPrime - greenPrime) / difference) + 4));
+        }
+
+        return hue;
     }
 }
