@@ -10,7 +10,7 @@ public class Color : Controller
     }
 
     [HttpGet]
-    public IActionResult RGBColor(int? red, int? green, int? blue)
+    public IActionResult RGBColor(int? red = 234, int? green = 113, int? blue = 86)
     {
         return View("RGBColor", new Models.Color() { red = red, green = green, blue = blue } );
     }
