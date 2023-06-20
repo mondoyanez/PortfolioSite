@@ -7,13 +7,13 @@ public class ColorInterpolation: Color
     // From Greg's answer: https://stackoverflow.com/questions/359612/how-to-change-rgb-color-to-hsv/1626175
     // And Wikipedia: https://en.wikipedia.org/wiki/HSL_and_HSV
 
-    [Required]
+    [Required(ErrorMessage = "First color is a required field.")]
     public string FirstColor { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Second color is a required field.")]
     public string SecondColor { get; set; }
 
-    [Range(2, 50)]
+    [Range(2, 50, ErrorMessage = "Number of colors field must be between {1} and {2}.")]
     public int? NumColors { get; set; }
     
     public static void ColorToHSV(Color color, out double hue, out double saturation, out double value)
