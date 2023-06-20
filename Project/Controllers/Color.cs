@@ -20,7 +20,6 @@ public class Color : Controller
     [HttpGet]
     public IActionResult ColorInterpolation()
     {
-        ViewBag.IsValid = true;
         return View();
     }
 
@@ -32,15 +31,13 @@ public class Color : Controller
 
         if (ModelState.IsValid)
         {
-            ViewBag.IsValid = true;
             ColorInterpolationVM vm = new()
             {
                 ColorInterpolation = colorInterpolation
             };
             return View(vm);
         }
-
-        ViewBag.IsValid = false;
+        
         return View();
     }
 }
