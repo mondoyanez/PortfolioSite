@@ -107,7 +107,7 @@ public class Color : Controller
                 vm.ListColors.Add(colorInterpolation.SecondColor.ToUpper());
             }
 
-            return View(vm);
+            return RedirectToAction("ColorInterpolation", new { hexValues = vm.ListColors });
         }
 
         return View();
