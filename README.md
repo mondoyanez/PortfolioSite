@@ -130,8 +130,41 @@ the view the deployed page in action and try out any of the features on the webs
         - Rainbow()
     - Round 5 (Length: 16): [Y, C, R, M, Y, C, B, R, C, Y, C, G, R, B, M, Y]
 
-### Color Interpolator
-- Still being developed
+### Color Generation
+- #### RGB Color
+    - A default color is generated when the user loads the page by default so they can have an idea of what to do.
+    - User has the ability to generate a color based on RGB values (Red, Green, Blue)
+    - User enters a number between and including 0 and 255 for red, green and blue
+    - When user clicks display it will generate the associated color based on the RGB values
+- #### Color Interpolation
+    - User has three fields to enter information which are the following:
+        - Start Color
+            - User enters a valid hex color from where to start
+        - End Color
+            - User enters a valid hex color for where to end
+        - Number of Colors
+            - User enters a number between 2 and 50 to determine the number of colors to interpolate between
+    - When user enters valid information and clicks Display then the following steps happen:
+        - The starting color is displayed on the right hand side along with it's hex value
+        - All colors in between are also displayed on the right hand side as well as their hex value
+        - It ends with the end color being displays along with it's hex value
+        - Example: 
+            - Input
+                - Start Color: #FFFFFF
+                - End Color: #000000
+                - Number of Colors: 20
+            - Displayed
+                - Start color (White)
+                - 18 colors the are in between white and black
+                    - It goes from white until the color becomes black
+                - End color (Black)
+    - When the user enters invalid input they are displayed with the appropriate error message such as:
+        - When an invalid hex value is entered for first color or second color
+            - First/Second color must be a valid hex value
+        - When number of colors is not in between range
+            - Number of colors field must be between 2 and 50
+        - When first color or second color is left as null
+            - First/Second color is a required field
 
 ### Mad Lib's Generator
 - Still being developed
