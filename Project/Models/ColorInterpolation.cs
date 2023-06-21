@@ -12,6 +12,7 @@ public class ColorInterpolation: Color
     public string FirstColor { get; set; }
 
     [Required(ErrorMessage = "Second color is a required field.")]
+    [RegularExpression("^#?[a-fA-F0-9]{6}$", ErrorMessage = "Second color must be a valid hex value")]
     public string SecondColor { get; set; }
 
     [Range(2, 50, ErrorMessage = "Number of colors field must be between {1} and {2}.")]
