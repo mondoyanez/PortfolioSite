@@ -24,7 +24,7 @@
             <input type="submit" class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" value="Display" />
         </div>
     </div>
-    @if (Model.ListColors.Any())
+    @if (Model?.ListColors != null)
     {
         <div class="ml-5 mt-12 sm:ml-80 sm:-mt-44">
             @foreach (string hexValue in Model.ListColors)
