@@ -90,11 +90,12 @@ public class Color : Controller
 
             for (int i = 1; i < vm.ColorInterpolation.NumColors - 1; i++)
             {
-                double newHue = Convert.ToDouble(hueStart + hueEnd * i);
-                double newSat = Convert.ToDouble(saturationStart + saturationEnd * i);
-                double newValue = Convert.ToDouble(valueStart + valueEnd * i);
+                double newHue = Convert.ToDouble(hueStart + hueIncrement * i);
+                double newSat = Convert.ToDouble(saturationStart + satIncrement * i);
+                double newValue = Convert.ToDouble(valueStart + valueIncrement * i);
 
                 Models.Color newColor = Models.ColorInterpolation.ColorFromHSV(newHue, newSat, newValue);
+                vm.ListColors.Add(newColor.RGBToHex());
             }
 
             if (colorInterpolation.SecondColor.Substring(0, 1).Equals("#"))
