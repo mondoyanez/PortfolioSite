@@ -56,6 +56,86 @@ public class ColorInterpolationModelValidator_Tests
     }
 
     [Test]
+    public void InvalidFirstColorInterpolation_FailingRegExForFirstColorUppercaseWithPoundSign_IsNotValid()
+    {
+        // Arrange
+        ColorInterpolation colorInterpolation = MakeValidColorInterpolation();
+        colorInterpolation.FirstColor = "#PA1253";
+
+        // Act
+        ModelValidator mv = new ModelValidator(colorInterpolation);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.False);
+            Assert.That(mv.ContainsFailureFor("FirstColor"), Is.True);
+            Assert.That(mv.ContainsFailureFor("SecondColor"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumColors"), Is.False);
+        });
+    }
+
+    [Test]
+    public void InvalidFirstColorInterpolation_FailingRegExForColorLowercaseWithPoundSign_IsNotValid()
+    {
+        // Arrange
+        ColorInterpolation colorInterpolation = MakeValidColorInterpolation();
+        colorInterpolation.FirstColor = "#zyx10p";
+
+        // Act
+        ModelValidator mv = new ModelValidator(colorInterpolation);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.False);
+            Assert.That(mv.ContainsFailureFor("FirstColor"), Is.True);
+            Assert.That(mv.ContainsFailureFor("SecondColor"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumColors"), Is.False);
+        });
+    }
+
+    [Test]
+    public void InvalidFirstColorInterpolation_FailingRegExForFirstColorUppercaseWithoutPoundSign_IsNotValid()
+    {
+        // Arrange
+        ColorInterpolation colorInterpolation = MakeValidColorInterpolation();
+        colorInterpolation.FirstColor = "PA1253";
+
+        // Act
+        ModelValidator mv = new ModelValidator(colorInterpolation);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.False);
+            Assert.That(mv.ContainsFailureFor("FirstColor"), Is.True);
+            Assert.That(mv.ContainsFailureFor("SecondColor"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumColors"), Is.False);
+        });
+    }
+
+    [Test]
+    public void InvalidFirstColorInterpolation_FailingRegExForColorLowercaseWithoutPoundSign_IsNotValid()
+    {
+        // Arrange
+        ColorInterpolation colorInterpolation = MakeValidColorInterpolation();
+        colorInterpolation.FirstColor = "zyx10p";
+
+        // Act
+        ModelValidator mv = new ModelValidator(colorInterpolation);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.False);
+            Assert.That(mv.ContainsFailureFor("FirstColor"), Is.True);
+            Assert.That(mv.ContainsFailureFor("SecondColor"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumColors"), Is.False);
+        });
+    }
+
+    [Test]
     public void InvalidSecondColorInterpolation_IsNotValid()
     {
         // Arrange

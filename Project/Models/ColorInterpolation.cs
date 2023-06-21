@@ -8,6 +8,7 @@ public class ColorInterpolation: Color
     // And Wikipedia: https://en.wikipedia.org/wiki/HSL_and_HSV
 
     [Required(ErrorMessage = "First color is a required field.")]
+    [RegularExpression("^#?[a-fA-F0-9]{6}$", ErrorMessage = "First color must be a valid hex value")]
     public string FirstColor { get; set; }
 
     [Required(ErrorMessage = "Second color is a required field.")]
