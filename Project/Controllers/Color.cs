@@ -47,20 +47,20 @@ public class Color : Controller
             {
                 if (colorInterpolation.FirstColor.Substring(0, 1).Equals("#"))
                 {
-                    vm.ListColors.Add(colorInterpolation.FirstColor.Substring(1));
+                    vm.ListColors.Add(colorInterpolation.FirstColor.Substring(1).ToUpper());
                 }
                 else
                 {
-                    vm.ListColors.Add(colorInterpolation.FirstColor);
+                    vm.ListColors.Add(colorInterpolation.FirstColor.ToUpper());
                 }
 
                 if (colorInterpolation.SecondColor.Substring(0, 1).Equals("#"))
                 {
-                    vm.ListColors.Add(colorInterpolation.SecondColor.Substring(1));
+                    vm.ListColors.Add(colorInterpolation.SecondColor.Substring(1).ToUpper());
                 }
                 else
                 {
-                    vm.ListColors.Add(colorInterpolation.SecondColor);
+                    vm.ListColors.Add(colorInterpolation.SecondColor.ToUpper());
                 }
 
                 return RedirectToAction("ColorInterpolation", new { hexValues = vm.ListColors });
@@ -68,11 +68,11 @@ public class Color : Controller
 
             if (colorInterpolation.FirstColor.Substring(0, 1).Equals("#"))
             {
-                vm.ListColors.Add(colorInterpolation.FirstColor.Substring(1));
+                vm.ListColors.Add(colorInterpolation.FirstColor.Substring(1).ToUpper());
             }
             else
             {
-                vm.ListColors.Add(colorInterpolation.FirstColor);
+                vm.ListColors.Add(colorInterpolation.FirstColor.ToUpper());
             }
 
             Models.Color colorStart = new();
@@ -100,11 +100,11 @@ public class Color : Controller
 
             if (colorInterpolation.SecondColor.Substring(0, 1).Equals("#"))
             {
-                vm.ListColors.Add(colorInterpolation.SecondColor.Substring(1));
+                vm.ListColors.Add(colorInterpolation.SecondColor.Substring(1).ToUpper());
             }
             else
             {
-                vm.ListColors.Add(colorInterpolation.SecondColor);
+                vm.ListColors.Add(colorInterpolation.SecondColor.ToUpper());
             }
 
             return View(vm);
