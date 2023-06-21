@@ -418,6 +418,31 @@ public class ColorInterpolationModelValidator_Tests
     }
 
     [Test]
+    public void ValidColorInterpolation_ColorFromHSVWithHueOf222_ShouldReturnColorDarkBlue()
+    {
+        // Arrange
+        double hue = 222;
+        double saturation = 70;
+        double value = 52;
+
+        // Act
+        Color actual = ColorInterpolation.ColorFromHSV(hue, saturation, value);
+        ModelValidator mv = new ModelValidator(actual);
+
+        // Assert
+        Assert.Multiple(() => 
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("red"), Is.False);
+            Assert.That(mv.ContainsFailureFor("green"), Is.False);
+            Assert.That(mv.ContainsFailureFor("blue"), Is.False);
+            Assert.That(actual.red, Is.EqualTo(40));
+            Assert.That(actual.green, Is.EqualTo(68));
+            Assert.That(actual.blue, Is.EqualTo(133));
+        });
+    }
+
+    [Test]
     public void ValidColorInterpolation_ColorFromHSVWithHueOf151_ShouldReturnColorTeal()
     {
         // Arrange
