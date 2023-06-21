@@ -18,12 +18,19 @@ public class Color : Controller
     }
 
     [HttpGet]
-    public IActionResult ColorInterpolation()
+    public IActionResult ColorInterpolation(List<string> hexValues)
     {
-        return View();
+        ColorInterpolationVM vm = new()
+        {
+            ColorInterpolation = new(),
+            ListColors = hexValues
+        };
+
+        return View(vm);
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult ColorInterpolation([Bind("FirstColor, SecondColor, NumColors")] ColorInterpolation colorInterpolation)
     {
         ModelState.Clear();
@@ -35,9 +42,73 @@ public class Color : Controller
             {
                 ColorInterpolation = colorInterpolation
             };
+
+            if (colorInterpolation.NumColors == 2)
+            {
+                if (colorInterpolation.FirstColor.Substring(0, 1).Equals("#"))
+                {
+                    vm.ListColors.Add(colorInterpolation.FirstColor.Substring(1));
+                }
+                else
+                {
+                    vm.ListColors.Add(colorInterpolation.FirstColor);
+                }
+
+                if (colorInterpolation.SecondColor.Substring(0, 1).Equals("#"))
+                {
+                    vm.ListColors.Add(colorInterpolation.SecondColor.Substring(1));
+                }
+                else
+                {
+                    vm.ListColors.Add(colorInterpolation.SecondColor);
+                }
+
+                return RedirectToAction("ColorInterpolation", new { hexValues = vm.ListColors });
+            }
+
+            if (colorInterpolation.FirstColor.Substring(0, 1).Equals("#"))
+            {
+                vm.ListColors.Add(colorInterpolation.FirstColor.Substring(1));
+            }
+            else
+            {
+                vm.ListColors.Add(colorInterpolation.FirstColor);
+            }
+
+            Models.Color colorStart = new();
+            Models.Color colorEnd = new();
+
+            colorStart = colorStart.HexToColor(vm.ColorInterpolation.FirstColor);
+            colorEnd = colorEnd.HexToColor(vm.ColorInterpolation.SecondColor);
+
+            Models.ColorInterpolation.ColorToHSV(colorStart, out double hueStart, out double saturationStart, out double valueStart);
+            Models.ColorInterpolation.ColorToHSV(colorEnd, out double hueEnd, out double saturationEnd, out double valueEnd);
+
+            double hueIncrement = Convert.ToDouble((hueEnd - hueStart) / vm.ColorInterpolation.NumColors);
+            double satIncrement = Convert.ToDouble((saturationEnd - saturationStart) / vm.ColorInterpolation.NumColors);
+            double valueIncrement = Convert.ToDouble((valueEnd - valueStart) / vm.ColorInterpolation.NumColors);
+
+            for (int i = 1; i < vm.ColorInterpolation.NumColors - 1; i++)
+            {
+                double newHue = Convert.ToDouble(hueStart + hueEnd * i);
+                double newSat = Convert.ToDouble(saturationStart + saturationEnd * i);
+                double newValue = Convert.ToDouble(valueStart + valueEnd * i);
+
+                Models.Color newColor = Models.ColorInterpolation.ColorFromHSV(newHue, newSat, newValue);
+            }
+
+            if (colorInterpolation.SecondColor.Substring(0, 1).Equals("#"))
+            {
+                vm.ListColors.Add(colorInterpolation.SecondColor.Substring(1));
+            }
+            else
+            {
+                vm.ListColors.Add(colorInterpolation.SecondColor);
+            }
+
             return View(vm);
         }
-        
+
         return View();
     }
 }

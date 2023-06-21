@@ -4,5 +4,5 @@ namespace Portfolio.ViewModels;
 public class ColorInterpolationVM
 {
     public ColorInterpolation ColorInterpolation { get; set; }
-    public List<Color> ListColors = new List<Color>();
+    public List<string> ListColors = new List<string>();
 }

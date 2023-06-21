@@ -24,12 +24,15 @@
             <input type="submit" class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" value="Display" />
         </div>
     </div>
-    <div class="ml-5 mt-12 sm:ml-80 sm:-mt-44">
-        <div class="w-32 h-32 ml-4 border-black border-solid border-2" style="background-color: #FFFFFF;">
-            <p class="text-blue-800 dark:text-blue-200 text-sm ml-36 pt-14">#FFFFFF</p>
+    @if (Model.ListColors.Any())
+    {
+        <div class="ml-5 mt-12 sm:ml-80 sm:-mt-44">
+            @foreach (string hexValue in Model.ListColors)
+            {
+                <div class="w-32 h-32 ml-4 border-black border-solid border-2" style="background-color: #@hexValue;">
+                    <p class="text-blue-800 dark:text-blue-200 text-sm ml-36 pt-14">#@hexValue</p>
+                </div>
+            }
         </div>
-        <div class="w-32 h-32 ml-4 border-black border-solid border-2" style="background-color: #FFFFFF;">
-            <p class="text-blue-800 dark:text-blue-200 text-sm ml-36 pt-14">#FFFFFF</p>
-        </div>
-    </div> 
+    }
 </form>
