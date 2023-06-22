@@ -1,0 +1,29 @@
+@model Portfolio.ViewModels.MadLibsVM
+
+@{
+    ViewData["Title"] = "Mad Lib Story";
+}
+
+<div class="flex items-center">
+    <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200 ml-40">@Model.StoryTitle</h1>
+</div>
+
+@if (Model.StoryTitle == "Road Trip")
+{
+    <div class="flex">
+        <p>Story from <a href="https://www.printablee.com/post_camping-mad-libs-printable_153008/">https://www.printablee.com/post_camping-mad-libs-printable_153008/</a></p>
+    </div>
+    <div class="flex">
+        <p>YAY! IT'S ROAD TRIP DAY! MY FAMILY AND I HOPPED IN THE <span>@Model.roadTripMadLib.Noun1.ToUpper()</span> FOR A <span>@Model.roadTripMadLib.Adjective1.ToUpper()</span> WEEK AT THE 
+        <span>@Model.roadTripMadLib.Noun2.ToUpper()</span>! WHEN WE STOPPED TO FILL UP THE <span>@Model.roadTripMadLib.Adjective2.ToUpper()</span> TANK, A <span>@Model.roadTripMadLib.Adjective3.ToUpper()</span> 
+        FROG <span>@Model.roadTripMadLib.Verb1.ToUpper()</span> IN THE CAR WHILE WE <span>@Model.roadTripMadLib.Verb2.ToUpper()</span> OUT TO GET <span>@Model.roadTripMadLib.Number1</span> SNACKS. <span></span></p>
+    </div>
+}
+else if (Model.StoryTitle == "Camping")
+{
+
+}
+else
+{
+
+}
