@@ -8,4 +8,14 @@ public class MadLibsController : Controller
     {
         return View();
     }
+
+    public IActionResult RoadTrip()
+    {
+        return View();
+    }
+
+    public IActionResult Camping()
+    {
+        return View();
+    }
 }
