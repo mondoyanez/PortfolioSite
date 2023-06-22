@@ -47,11 +47,11 @@ public class RoadTripMadLib
     [Required]
     public string Noun6 { get; set; }
     [Required]
-    public string PluralNoun { get; set; }
+    public string PluralNoun1 { get; set; }
     [Required]
     public string Verb8 { get; set; }
     [Required]
-    public string Name { get; set; }
+    public string Name1 { get; set; }
     [Required]
     public string Verb9 { get; set; }
     [Required]
