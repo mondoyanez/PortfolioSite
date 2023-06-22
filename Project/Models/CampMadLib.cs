@@ -7,7 +7,7 @@ public class CampMadLib
     [Required]
     public string Name1 { get; set; }
     [Required]
-    public string CampName { get; set; }
+    public string CampName1 { get; set; }
     [Required]
     public string Adjective1 { get; set; }
     [Required]
