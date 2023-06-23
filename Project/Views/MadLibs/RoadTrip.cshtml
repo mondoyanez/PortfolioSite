@@ -4,11 +4,16 @@
     ViewData["Title"] = "Road Trip Mad Lib Input";
 }
 
-<div class="flex items-center">
-    <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200 ml-40">Road Trip Mad Lib Input</h1>
+<div class="flex justify-between px-5">
+    <input class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" id="RoadTripDefault" type="button" value="DEFAULT" />
+    <input class="bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" id="RoadTripClear" type="button" value="CLEAR" />
 </div>
 
-<form asp-action="RoadTrip" method="post" class="justify-center grid mt-24 ml-32">
+<div class="flex items-center mt-5">
+    <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200">Road Trip Mad Lib Input</h1>
+</div>
+
+<form asp-action="RoadTrip" method="post" class="justify-center grid mt-24">
     <div asp-validation-summary="All" class="text-red-800 text-sm -mt-20 block"></div>
     <div class="justify-between block">
         <div class="pb-2">
@@ -118,3 +123,8 @@
         </div>
     </div>
 </form>
+
+@section Scripts
+{
+    <script src="~/js/roadTripInput.js"></script>
+}
