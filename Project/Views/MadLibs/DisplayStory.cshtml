@@ -4,14 +4,19 @@
     ViewData["Title"] = "Mad Lib Story";
 }
 
-<div class="flex items-center">
+<div class="flex items-center justify-between px-2 mt-2">
+    <a asp-controller="MadLibs" asp-action="Index" class="text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500 text-center underline">Go Back To All Mad Lib Stories</a>
+    <a asp-controller="MadLibs" asp-action="RoadTrip" class="text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500 text-center underline">Enter New Story</a>
+</div>
+
+<div class="flex items-center mt-5">
     <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200">@Model.StoryTitle Mad Lib</h1>
 </div>
 
 @if (Model.StoryTitle == "Road Trip")
 {
-    <div class="flex text-blue-800 dark:text-blue-200 mt-2 px-2">
-        <p>Story from <a class=" text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500" href="https://www.printablee.com/post_camping-mad-libs-printable_153008/">https://www.printablee.com/post_camping-mad-libs-printable_153008/</a></p>
+    <div class="flex text-blue-800 dark:text-blue-200 mt-5 px-2">
+        <p>Story from <a class=" text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500 underline" href="https://www.printablee.com/post_camping-mad-libs-printable_153008/">https://www.printablee.com/post_camping-mad-libs-printable_153008/</a></p>
     </div>
     <div class="flex text-blue-800 dark:text-blue-200 mt-20 px-2">
         <p>YAY! IT'S ROAD TRIP DAY! MY FAMILY AND I HOPPED IN THE <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Noun1.ToUpper()</span> 
