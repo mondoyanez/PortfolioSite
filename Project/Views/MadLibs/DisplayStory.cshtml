@@ -106,5 +106,10 @@ else if (Model.StoryTitle == "Camping")
 }
 else
 {
-
+    <div class="flex items-center mt-5 font-mono">
+        <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200">Story was not selected please select a story.</h1>
+    </div>
+    <div class="flex items-center justify-center px-2 mt-[600px] font-mono">
+        <a asp-controller="MadLibs" asp-action="Index" class="text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500 text-center underline">Go Back To All Mad Lib Stories</a>
+    </div>
 }
