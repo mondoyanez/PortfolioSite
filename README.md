@@ -167,8 +167,24 @@ the view the deployed page in action and try out any of the features on the webs
             - First/Second color is a required field
 
 ### Mad Lib's Generator
-- Still being developed
-
+- User has the choice of making a mad lib based on two different stories containing different prompts, which are as followed:
+    - Road Trip
+        - A story about how a road trip went.
+    - Camping
+        - A letter back to someone about how a camping trip is going.
+- Every mad lib story contains two different buttons for the user to be able to use which function as followed:
+    - Default
+        - Provides default values to the as input for the mad lib story which can then be modified by the user if they wish to do so.
+    - Clear
+        - Clears all entered values that are currently on input fields so that the user does not have to manually remove them all.
+- When the user clicks on the "Generate Story" button it then generates the story based on their input to give them a mad lib to be able to read.
+- On that same page that contains the story the user can select three different links being:
+    - Source
+        - Where the mad lib story came from.
+    - All Stories
+        - Navigates the user back to all stories to be able to select a different story if they wish to do so.
+    - New Input
+        - Takes the user back the input page of the current story to enter new values to generate a different story.
 ### Random Team Generator
 - Still being developed
 
@@ -179,7 +195,7 @@ the view the deployed page in action and try out any of the features on the webs
 
 - Projects: Index page that has my projects in one page for the user to be able to navigate to each project from one location.
 - Light/Dark mode: Light/Dark mode that changes the theme of the page for the user to theme that they prefer to use.
-- Resume: User can view my Resume and download it as well by poping out the window that will allow them to download the resume.
+- Resume: User can view my Resume and download it as well by popping out the window that will allow them to download the resume.
 - Acknowledgements: Credits page of where all the sources for the project were acquired
 
 ## Documentation
