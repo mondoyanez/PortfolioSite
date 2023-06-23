@@ -119,8 +119,31 @@ public class MadLibsController : Controller
         return View();
     }
 
+    [HttpGet]
     public IActionResult Camping()
     {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Camping([Bind("Name1, CampName1, Adjective1, Activity1, Activity2, PluralNoun1, Adjective2, Noun1, NickName1")] CampMadLib madLib)
+    {
+        ModelState.Clear();
+        TryValidateModel(madLib);
+
+        if (ModelState.IsValid)
+        {
+            List<string> selectedWords = new List<string>()
+            {
+                madLib.Name1, madLib.CampName1, madLib.Adjective1, madLib.Activity1,
+                madLib.Activity2, madLib.PluralNoun1, madLib.Adjective2, madLib.Noun1, madLib.NickName1
+            };
+            string selectedStory = "Camping";
+            
+            return RedirectToAction("DisplayStory", new { words = selectedWords, story = selectedStory });
+        }
+
         return View();
     }
 }
