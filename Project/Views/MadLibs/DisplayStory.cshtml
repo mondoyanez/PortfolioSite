@@ -1,0 +1,115 @@
+@model Portfolio.ViewModels.MadLibsVM
+
+@{
+    ViewData["Title"] = "Mad Lib Story";
+}
+
+@if (Model.StoryTitle == "Road Trip")
+{
+    <div class="flex items-center justify-between px-2 mt-2 font-mono">
+        <a asp-controller="MadLibs" asp-action="Index" class="text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500 text-center underline">Go Back To All Mad Lib Stories</a>
+        <a asp-controller="MadLibs" asp-action="RoadTrip" class="text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500 text-center underline">Enter New Story</a>
+    </div>
+    <div class="flex items-center mt-5 font-mono">
+        <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200">@Model.StoryTitle Mad Lib</h1>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 mt-5 px-2 font-mono justify-center">
+        <p>Story from <a class=" text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500 underline" href="https://www.printablee.com/post_camping-mad-libs-printable_153008/">https://www.printablee.com/post_camping-mad-libs-printable_153008/</a></p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 mt-20 px-2 font-serif">
+        <p>YAY! IT'S ROAD TRIP DAY! MY FAMILY AND I HOPPED IN THE <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Noun1.ToUpper()</span> 
+        FOR A <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Adjective1.ToUpper()</span> WEEK AT THE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Noun2.ToUpper()</span>! WHEN WE STOPPED TO FILL UP THE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Adjective2.ToUpper()</span> TANK, A 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Adjective3.ToUpper()</span> 
+        FROG <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Verb1.ToUpper()</span> IN THE CAR WHILE WE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Verb2.ToUpper()</span> OUT TO GET 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Number1</span> SNACKS.</p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-serif">
+        <p>WE <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Verb3.ToUpper()</span> BACK IN THE CAR AND 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Adverb1.ToUpper()</span> GOT ON THE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Noun3.ToUpper()</span> 
+        ABOUT 30 MINUTES IN, THE <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Color1.ToUpper()</span> FROG 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Verb4.ToUpper()</span> ONTO THE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Noun4.ToUpper()</span> 
+        MY MOM WAS HOLDING! "<span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Exclamation1.ToUpper()</span>" SHE SCREAMED!</p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-serif">
+        <p>"GET OFF!" MY DAD THOUGHT SHE WAS <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Verb5.ToUpper()</span> 
+        TO HIM SO HE <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Adverb2.ToUpper()</span> SWERVED THE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Noun5.ToUpper()</span> ONTO THE EXIT RAMP! WE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Verb6.ToUpper()</span> FROM LEFT TO RIGHT. THE FROG 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Verb7.ToUpper()</span> ONTO THE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Noun6.ToUpper()</span> CAUSING MY DAD TO SLAM ON THE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.PluralNoun1.ToUpper()</span>. 
+        SNACKS WENT EVERYWHERE, MY MOM WAS <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Verb8.ToUpper()</span> AND MY DAD 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Name1.ToUpper()</span>, 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Verb9.ToUpper()</span> 
+        OUT OF THE CAR LIKE A <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Noun7.ToUpper()</span>. MY BROTHER AND I 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Verb10.ToUpper()</span>. THE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Adjective4.ToUpper()</span> 
+        FROG <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Adverb3.ToUpper()</span> HOPPED OUT OFF INTO THE BRUSH.</p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-serif">
+        <p>WE <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Adverb4.ToUpper()</span> CLOSED THE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Noun8.ToUpper()</span> DOORS AND HEADED BACK ON THE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Verb11.ToUpper()</span> TO THE 
+        <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Noun9.ToUpper()</span>.</p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-serif">
+        <p>"WHAT A <span class="text-black dark:text-white font-bold">@Model.roadTripMadLib.Adjective5.ToUpper()</span> ROAD TRIP" MY MOM SAID!</p>
+    </div>
+}
+else if (Model.StoryTitle == "Camping")
+{
+    <div class="flex items-center justify-between px-2 mt-2 font-mono">
+        <a asp-controller="MadLibs" asp-action="Index" class="text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500 text-center underline">Go Back To All Mad Lib Stories</a>
+        <a asp-controller="MadLibs" asp-action="Camping" class="text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500 text-center underline">Enter New Story</a>
+    </div>
+    <div class="flex items-center mt-5 font-mono">
+        <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200">@Model.StoryTitle Mad Lib</h1>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 mt-5 px-2 font-mono justify-center">
+        <p>Story from <a class=" text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500 underline" href="https://www.printablee.com/post_camping-mad-libs-printable_153008/">https://www.printablee.com/post_camping-mad-libs-printable_153008/</a></p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 mt-20 px-2 font-sans justify-center">
+        <p>Dear <span class="text-black dark:text-white font-bold">@Model.campMadLib.Name1</span>,</p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-sans justify-center mt-5">
+        <p>Here I am at Camp <span class="text-black dark:text-white font-bold">@Model.campMadLib.CampName1</span>!</p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-sans justify-center">
+        <p>I am having a <span class="text-black dark:text-white font-bold">@Model.campMadLib.Adjective1</span> time.</p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-sans justify-center">
+        <p>So far I have gone <span class="text-black dark:text-white font-bold">@Model.campMadLib.Activity1</span> and <span class="text-black dark:text-white font-bold">@Model.campMadLib.Activity2</span></p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-sans justify-center">
+        <p>My favorite thing about camp is <span class="text-black dark:text-white font-bold">@Model.campMadLib.PluralNoun1</span></p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-sans justify-center">
+        <p>They are so <span class="text-black dark:text-white font-bold">@Model.campMadLib.Adjective2</span>!</p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-sans justify-center">
+        <p>I miss <span class="text-black dark:text-white font-bold">@Model.campMadLib.Noun1</span> though.</p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-sans justify-center">
+        <p>See you soon!</p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-sans justify-center mt-10">
+        <p>Love,</p>
+    </div>
+    <div class="flex text-blue-800 dark:text-blue-200 px-2 font-sans justify-center">
+        <p><span class="text-black dark:text-white font-bold">@Model.campMadLib.NickName1</span></p>
+    </div>
+}
+else
+{
+    <div class="flex items-center mt-5 font-mono">
+        <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200">Story was not selected please select a story.</h1>
+    </div>
+    <div class="flex items-center justify-center px-2 mt-[600px] font-mono">
+        <a asp-controller="MadLibs" asp-action="Index" class="text-yellow-800 dark:text-yellow-200 md:hover:text-orange-500 text-center underline">Go Back To All Mad Lib Stories</a>
+    </div>
+}

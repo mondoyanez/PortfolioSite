@@ -1,7 +1,7 @@
 # Codefolio
 
 This GitHub repository is a portfolio containing projects that I have built from 2017-2023 from when I attended Chemeketa Community College and 
-Western Oregon University. It showcases a varitey of different projects such as WatchParty and Oregon Turtle App in which had me working with databases 
+Western Oregon University. It showcases a variety of different projects such as WatchParty and Oregon Turtle App in which had me working with databases 
 while working on a team with other individuals. Also GitHub Repos Viewer which was my introduction to using an external api which was GitHub's and making sure 
 that I was following best practices while I was working on that project. It also includes Little Person Computer which was the very first application I made 
 as a developer to showcase my growth as a developer.
@@ -25,7 +25,7 @@ Check out the live demo of the project: [Portfolio](https://ayportfolio.azureweb
 ## Installation
 
 1. Make sure you have .NET 7 installed. You can download it from the official .NET website: [dotnet.microsoft.com](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
-2. Make sure you have NodeJS installed. You can download it from the offical NodeJS website: [NodeJS](https://nodejs.org/en/download)
+2. Make sure you have NodeJS installed. You can download it from the official NodeJS website: [NodeJS](https://nodejs.org/en/download)
 3. Clone the repository: `git clone https://github.com/mondoyanez/PortfolioSite.git`
 4. Navigate to the project directory: `cd PortfolioSite/Project`
 5. Install the required dependencies using NuGet: `dotnet restore`
@@ -43,12 +43,12 @@ The web application allows users to switch between Dark mode and Light mode. It 
 - User can change the theme to Dark mode or Light mode if they chose to by clicking the icon on the top right.
 - The AY link in the navbar will take the user back to the Index page containing all the projects.
 - The Projects link in the navbar will take the user back to the Index page containing all the projects.
-- Resume link in the navbar will take the user to the Resume page, where they can view my Resume instide a viewer and download it as well by poping out the window on the top right which will open the resume in a seperate tab allowing them to print out the resume or print it as a pdf which then is saved on their device that they are currently viewing the page from.
+- Resume link in the navbar will take the user to the Resume page, where they can view my Resume inside a viewer and download it as well by popping out the window on the top right which will open the resume in a separate tab allowing them to print out the resume or print it as a pdf which then is saved on their device that they are currently viewing the page from.
 - The Acknowledgments link in the navbar will take the user to the Acknowledgements page, crediting the sources that were used to build the web application.
 
 ### Footer
-- In the footer in the bottom right is a link to the GitHub repo page, when clicked it will open the repository on a seperate tab.
-- Next to the GitHub icon is a Linkedin icon that will take the user to my Linkedin profile that will be opened on a seperate tab if they wish to visit my Linkedin.
+- In the footer in the bottom right is a link to the GitHub repo page, when clicked it will open the repository on a separate tab.
+- Next to the GitHub icon is a Linkedin icon that will take the user to my Linkedin profile that will be opened on a separate tab if they wish to visit my Linkedin.
 
 ### Oregon Turtles
 - A description of the project and when I was apart of the team is included, the VIEW button on the bottom of the card navigates the user to the deployed Oregon Turtles
@@ -59,7 +59,7 @@ site so that the user the view the page if they wish to view it.
 the view the deployed page in action and try out any of the features on the website.
 
 ### Pythagorean Theorem Calculator
-- User enters a postive value greater than 0.00001 for Side A and Side B
+- User enters a positive value greater than 0.00001 for Side A and Side B
 - User then clicks the calculate button
 - User is given the hypotenuse given a triangle with those two legs
 
@@ -167,8 +167,24 @@ the view the deployed page in action and try out any of the features on the webs
             - First/Second color is a required field
 
 ### Mad Lib's Generator
-- Still being developed
-
+- User has the choice of making a mad lib based on two different stories containing different prompts, which are as followed:
+    - Road Trip
+        - A story about how a road trip went.
+    - Camping
+        - A letter back to someone about how a camping trip is going.
+- Every mad lib story contains two different buttons for the user to be able to use which function as followed:
+    - Default
+        - Provides default values to the as input for the mad lib story which can then be modified by the user if they wish to do so.
+    - Clear
+        - Clears all entered values that are currently on input fields so that the user does not have to manually remove them all.
+- When the user clicks on the "Generate Story" button it then generates the story based on their input to give them a mad lib to be able to read.
+- On that same page that contains the story the user can select three different links being:
+    - Source
+        - Where the mad lib story came from.
+    - All Stories
+        - Navigates the user back to all stories to be able to select a different story if they wish to do so.
+    - New Input
+        - Takes the user back the input page of the current story to enter new values to generate a different story.
 ### Random Team Generator
 - Still being developed
 
@@ -179,7 +195,7 @@ the view the deployed page in action and try out any of the features on the webs
 
 - Projects: Index page that has my projects in one page for the user to be able to navigate to each project from one location.
 - Light/Dark mode: Light/Dark mode that changes the theme of the page for the user to theme that they prefer to use.
-- Resume: User can view my Resume and download it as well by poping out the window that will allow them to download the resume.
+- Resume: User can view my Resume and download it as well by popping out the window that will allow them to download the resume.
 - Acknowledgements: Credits page of where all the sources for the project were acquired
 
 ## Documentation
