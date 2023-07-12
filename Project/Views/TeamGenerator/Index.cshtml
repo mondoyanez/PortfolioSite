@@ -1,10 +1,27 @@
+@model Portfolio.Models.TeamsModel
+
 @{
     ViewData["Title"] = "Team Generator";
 }
 
 <div class="flex items-center justify-between">
-    <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200 ml-40">Team Generator</h1>
+    <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200 ml-40">Generate Teams</h1>
     <a href="https://github.com/mondoyanez/WesternOregonProjects/tree/main/TeamGenerator">
         <input class="mx-5 bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" value="Original Repo" type="button" />
     </a>
 </div>
+
+<form asp-controller="TeamGenerator" asp-action="Index" class="justify-center grid mt-32">
+    <div asp-validation-summary="All" class="text-red-800 text-sm -mt-20 block"></div>
+    <div class="mb-5 justify-between">
+        <label class="font-bold text-md text-blue-800 dark:text-blue-200">Enter Names: </label>
+        <textarea asp-for="Names" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200"></textarea>
+    </div>
+    <div class="mb-5 justify-between">
+        <label class="font-bold text-md text-blue-800 dark:text-blue-200">Number per team: </label>
+        <input asp-for="NumTeams" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" type="number" />
+    </div>
+    <div>
+        <button class="mx-5 bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" type="submit">Generate Teams</button>
+    </div>
+</form>
