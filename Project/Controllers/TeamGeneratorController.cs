@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Models;
+using Portfolio.ViewModels;
 
 namespace Portfolio.Controllers;
 
@@ -19,6 +20,13 @@ public class TeamGeneratorController : Controller
         if (!ModelState.IsValid) return View("Index");
 
         ViewBag.IsValid = true;
-        return View("GenerateTeams", teams);
+
+        TeamsGeneratorVM vm = new TeamsGeneratorVM()
+        {
+            NumTeams = Convert.ToInt32(teams.NumTeams),
+            Names = teams.Names.Split('\n').ToList()
+        };
+
+        return View("GenerateTeams", vm);
     }
 }

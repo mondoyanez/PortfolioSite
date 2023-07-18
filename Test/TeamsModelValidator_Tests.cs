@@ -30,33 +30,8 @@ public class TeamsModelValidator_Tests
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.False);
             Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
-            Assert.That(teamsModel.ColorsAvailable.Length, Is.EqualTo(20));
-            Assert.That(teamsModel.ColorsAvailable[0], Is.EqualTo("#ff80ed"));
-            Assert.That(teamsModel.ColorsAvailable[7], Is.EqualTo("#e6e6fa"));
-            Assert.That(teamsModel.ColorsAvailable[19], Is.EqualTo("#fa8072"));
             Assert.That(teamsModel.Names, Is.EqualTo("Art Robles\n Juliette Austin\n Milo Wall\n Ariel Wallace\n Vern Garrett"));
             Assert.That(teamsModel.NumTeams, Is.EqualTo(5));
-        });
-    }
-
-    [Test]
-    public void ValidTeamsModel_ColorsAvailablePropertyIsNull_IsValid()
-    {
-        // Arrange
-        TeamsModel teamsModel = MakeValidTeamsModel();
-        teamsModel.ColorsAvailable = null;
-
-        // Act
-        ModelValidator mv = new ModelValidator(teamsModel);
-
-        // Assert
-        Assert.Multiple(() => 
-        {
-            Assert.That(mv.Valid, Is.True);
-            Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
-            Assert.That(mv.ContainsFailureFor("Names"), Is.False);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
-            Assert.That(teamsModel.ColorsAvailable, Is.Null);
         });
     }
 
@@ -226,69 +201,5 @@ public class TeamsModelValidator_Tests
             Assert.That(mv.ContainsFailureFor("NumTeams"), Is.True);
             Assert.That(teamsModel.NumTeams, Is.EqualTo(9001));
         });
-    }
-
-    [Test]
-    public void ValidTeamsModel_ShuffleMethod_FunctionsCorrectly()
-    {
-        // Arrange
-        TeamsModel teamsModel = MakeValidTeamsModel();
-        teamsModel.Names = "Art Robles\n Juliette Austin\n Milo Wall\n Ariel Wallace\n Vern Garrett\n Pedro Leonard\n Wyatt Mcgee\n Quincy Hutchinson\n Ines Moore\n " +
-                            "Doug Warren\n Archie Ortiz\n Adele Chaney\n Shad Mercado\n Sheila Velez\n Rene Costa\n Theresa Bright\n April Barton\n " + 
-                            "Nathaniel Russel\n Leroy Farrell\n Harley Weaver";
-        string[] teamMembers = new string[19];
-        teamMembers = teamsModel.Names.Split("\n");
-
-        // Act
-        ModelValidator mv = new ModelValidator(teamsModel);
-        string[] shuffledMembers = teamsModel.Shuffle(teamMembers);
-
-        // Assert
-        Assert.Multiple(() => 
-        {
-            Assert.That(mv.Valid, Is.True);
-            Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
-            Assert.That(mv.ContainsFailureFor("Names"), Is.False);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
-            Assert.That(teamsModel.ColorsAvailable.Length, Is.EqualTo(20));
-            Assert.That(teamsModel.ColorsAvailable[0], Is.EqualTo("#ff80ed"));
-            Assert.That(teamsModel.ColorsAvailable[7], Is.EqualTo("#e6e6fa"));
-            Assert.That(teamsModel.ColorsAvailable[19], Is.EqualTo("#fa8072"));
-            Assert.That(teamsModel.Names, Is.EqualTo("Art Robles\n Juliette Austin\n Milo Wall\n Ariel Wallace\n Vern Garrett\n Pedro Leonard\n Wyatt Mcgee\n Quincy Hutchinson\n Ines Moore\n Doug Warren\n Archie Ortiz\n Adele Chaney\n Shad Mercado\n Sheila Velez\n Rene Costa\n Theresa Bright\n April Barton\n Nathaniel Russel\n Leroy Farrell\n Harley Weaver"));
-            Assert.That(teamsModel.NumTeams, Is.EqualTo(5));
-            Assert.That(shuffledMembers.Length, Is.EqualTo(20));
-        });
-    }
-
-    [Test]
-    public void ValidTeamsModel_ShuffleMethodWithEmptyString_FunctionsCorrectly()
-    {
-        // Arrange
-        TeamsModel teamsModel = MakeValidTeamsModel();
-        string[] teamMembers = new string[19];
-
-        // Act
-        ModelValidator mv = new ModelValidator(teamsModel);
-        string[] shuffledMembers = teamsModel.Shuffle(teamMembers);
-
-        // Assert
-        Assert.Multiple(() => 
-        {
-            Assert.That(mv.Valid, Is.True);
-            Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
-            Assert.That(mv.ContainsFailureFor("Names"), Is.False);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
-            Assert.That(shuffledMembers.Length, Is.EqualTo(19));
-        });
-    }
-
-    [Test]
-    public void InvalidTeamsModel_ShuffleMethodWithNull_ThrowsNullReferenceException()
-    {
-        // Arrange
-        TeamsModel teamsModel = MakeValidTeamsModel();
-
-        // Act/Assert
-        Assert.Throws<ArgumentNullException>(() => teamsModel.Shuffle(null));
     }
 }
