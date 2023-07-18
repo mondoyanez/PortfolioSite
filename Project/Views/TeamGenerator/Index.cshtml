@@ -12,7 +12,7 @@
 </div>
 
 <form asp-controller="TeamGenerator" asp-action="GenerateTeams" class="justify-center grid mt-16">
-    <div asp-validation-summary="All" class="text-red-800 text-base -mt-16 -ml-10 py-5 block max-w-xs"></div>
+    <div asp-validation-summary="All" class="text-red-800 text-base -mt-16 ml-10 md:-ml-10 py-5 block max-w-xs"></div>
     <div class="mb-[420px] pl-36 md:pl-0 -ml-28">
         <label class="font-bold text-md text-blue-800 dark:text-blue-200">Enter Names: </label>
         <textarea asp-for="Names" class="ml-2 -mb-[400px] bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" rows="20" cols="30"></textarea>
