@@ -1,5 +1,3 @@
-using Portfolio.Models;
-
 namespace Portfolio.ViewModels;
 
 public class TeamsGeneratorVM
@@ -14,14 +12,14 @@ public class TeamsGeneratorVM
 
     public int NumTeams { get; set; }
 
-    public string[] Shuffle(string[] arr)
+    public void Shuffle()
     {
         // https://csharpforums.net/threads/how-to-shuffle-an-array.7102/#:~:text=If%20you%20want%20to%20shuffle%20the%20existing%20array,var%20keys%20%3D%20originalArray.Select%28e%20%3D%3E%20rng.NextDouble%28%29%29.ToArray%28%29%3B%20Array.Sort%28keys%2C%20originalArray%29%3B
 
         try
         {
             var rng = new Random();
-            return arr.OrderBy(e => rng.NextDouble()).ToArray();
+            Names = Names.OrderBy(e => rng.NextDouble()).ToList();
         }
         catch
         {
