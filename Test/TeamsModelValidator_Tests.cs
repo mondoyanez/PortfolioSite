@@ -9,7 +9,7 @@ public class TeamsModelValidator_Tests
         TeamsModel teamsModel = new()
         {
             Names = "Art Robles\n Juliette Austin\n Milo Wall\n Ariel Wallace\n Vern Garrett",
-            NumTeams = 5
+            NumPerTeam = 5
         };
         return teamsModel;
     }
@@ -29,9 +29,9 @@ public class TeamsModelValidator_Tests
             Assert.That(mv.Valid, Is.True);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.False);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
             Assert.That(teamsModel.Names, Is.EqualTo("Art Robles\n Juliette Austin\n Milo Wall\n Ariel Wallace\n Vern Garrett"));
-            Assert.That(teamsModel.NumTeams, Is.EqualTo(5));
+            Assert.That(teamsModel.NumPerTeam, Is.EqualTo(5));
         });
     }
 
@@ -51,7 +51,7 @@ public class TeamsModelValidator_Tests
             Assert.That(mv.Valid, Is.False);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.True);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
             Assert.That(teamsModel.Names, Is.Null);
         });
     }
@@ -72,7 +72,7 @@ public class TeamsModelValidator_Tests
             Assert.That(mv.Valid, Is.False);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.True);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
             Assert.That(teamsModel.Names, Is.EqualTo(string.Empty));
         });
     }
@@ -93,7 +93,7 @@ public class TeamsModelValidator_Tests
             Assert.That(mv.Valid, Is.False);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.True);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
             Assert.That(teamsModel.Names, Is.EqualTo(" Art Robles\n Juliette Austin\n Milo Wall\n Ariel Wallace\n Vern Garrett"));
         });
     }
@@ -114,7 +114,7 @@ public class TeamsModelValidator_Tests
             Assert.That(mv.Valid, Is.False);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.True);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
             Assert.That(teamsModel.Names, Is.EqualTo("@Art Robles\n Juliette Austin\n Milo Wall\n Ariel Wallace\n Vern Garrett"));
         });
     }
@@ -135,7 +135,7 @@ public class TeamsModelValidator_Tests
             Assert.That(mv.Valid, Is.False);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.True);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
             Assert.That(teamsModel.Names, Is.EqualTo("6Art Robles\n Juliette Austin\n Milo Wall\n Ariel Wallace\n Vern Garrett"));
         });
     }
@@ -145,7 +145,7 @@ public class TeamsModelValidator_Tests
     {
         // Arrange
         TeamsModel teamsModel = MakeValidTeamsModel();
-        teamsModel.NumTeams = null;
+        teamsModel.NumPerTeam = null;
 
         // Act
         ModelValidator mv = new ModelValidator(teamsModel);
@@ -156,8 +156,8 @@ public class TeamsModelValidator_Tests
             Assert.That(mv.Valid, Is.False);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.False);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.True);
-            Assert.That(teamsModel.NumTeams, Is.Null);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.True);
+            Assert.That(teamsModel.NumPerTeam, Is.Null);
         });
     }
 
@@ -166,7 +166,7 @@ public class TeamsModelValidator_Tests
     {
         // Arrange
         TeamsModel teamsModel = MakeValidTeamsModel();
-        teamsModel.NumTeams = 0;
+        teamsModel.NumPerTeam = 0;
 
         // Act
         ModelValidator mv = new ModelValidator(teamsModel);
@@ -177,8 +177,8 @@ public class TeamsModelValidator_Tests
             Assert.That(mv.Valid, Is.False);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.False);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.True);
-            Assert.That(teamsModel.NumTeams, Is.EqualTo(0));
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.True);
+            Assert.That(teamsModel.NumPerTeam, Is.EqualTo(0));
         });
     }
 
@@ -187,7 +187,7 @@ public class TeamsModelValidator_Tests
     {
         // Arrange
         TeamsModel teamsModel = MakeValidTeamsModel();
-        teamsModel.NumTeams = 9001;
+        teamsModel.NumPerTeam = 9001;
 
         // Act
         ModelValidator mv = new ModelValidator(teamsModel);
@@ -198,8 +198,8 @@ public class TeamsModelValidator_Tests
             Assert.That(mv.Valid, Is.False);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.False);
-            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.True);
-            Assert.That(teamsModel.NumTeams, Is.EqualTo(9001));
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.True);
+            Assert.That(teamsModel.NumPerTeam, Is.EqualTo(9001));
         });
     }
 }

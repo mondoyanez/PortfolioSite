@@ -10,6 +10,8 @@ public class TeamsGeneratorVM
 
     public List<string> Names = new List<string>();
 
+    public int NumPerTeam { get; set; }
+
     public int NumTeams { get; set; }
 
     public void Shuffle()

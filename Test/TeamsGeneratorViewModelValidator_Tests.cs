@@ -21,7 +21,8 @@ public class TeamsGeneratorValidator_Tests
                 "Ariel Wallace",
                 "Vern Garrett"
             },
-            NumTeams = 5
+            NumPerTeam = 5,
+            NumTeams = 1
         };
         return viewModel;
     }
@@ -41,6 +42,7 @@ public class TeamsGeneratorValidator_Tests
             Assert.That(mv.Valid, Is.True);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
             Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
         });
     }
@@ -60,6 +62,7 @@ public class TeamsGeneratorValidator_Tests
             Assert.That(mv.Valid, Is.True);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
             Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
             Assert.That(vm.ColorsAvailable[0], Is.EqualTo("#ff80ed"));
             Assert.That(vm.ColorsAvailable[1], Is.EqualTo("#8a2be2"));
@@ -99,6 +102,7 @@ public class TeamsGeneratorValidator_Tests
             Assert.That(mv.Valid, Is.True);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
             Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
             Assert.That(vm.Names[0], Is.EqualTo("Art Robles"));
             Assert.That(vm.Names[1], Is.EqualTo("Juliette Austin"));
@@ -109,7 +113,7 @@ public class TeamsGeneratorValidator_Tests
     }
 
     [Test]
-    public void ValidTeamsGenerator_NumTeamsProperty_IsCorrect()
+    public void ValidTeamsGenerator_NumPerTeamProperty_IsCorrect()
     {
         // Arrange
         TeamsGeneratorVM vm = MakeValidTeamsGeneratorVM();
@@ -123,8 +127,30 @@ public class TeamsGeneratorValidator_Tests
             Assert.That(mv.Valid, Is.True);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
             Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
-            Assert.That(vm.NumTeams, Is.EqualTo(5));
+            Assert.That(vm.NumPerTeam, Is.EqualTo(5));
+        });
+    }
+
+    [Test]
+    public void ValidTeamsGenerator_NumTeamsProperty_IsCorrect()
+    {
+        // Arrange
+        TeamsGeneratorVM vm = MakeValidTeamsGeneratorVM();
+
+        // Act
+        ModelValidator mv = new ModelValidator(vm);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(mv.Valid, Is.True);
+            Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
+            Assert.That(mv.ContainsFailureFor("Names"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
+            Assert.That(vm.NumTeams, Is.EqualTo(1));
         });
     }
 
@@ -145,6 +171,7 @@ public class TeamsGeneratorValidator_Tests
             Assert.That(mv.Valid, Is.True);
             Assert.That(mv.ContainsFailureFor("ColorsAvailable"), Is.False);
             Assert.That(mv.ContainsFailureFor("Names"), Is.False);
+            Assert.That(mv.ContainsFailureFor("NumPerTeam"), Is.False);
             Assert.That(mv.ContainsFailureFor("NumTeams"), Is.False);
             Assert.That(vm.Names[0], Is.EqualTo(correctOrder[0]));
             Assert.That(vm.Names[1], Is.EqualTo(correctOrder[1]));

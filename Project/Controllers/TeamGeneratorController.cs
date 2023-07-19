@@ -23,7 +23,7 @@ public class TeamGeneratorController : Controller
 
         TeamsGeneratorVM vm = new TeamsGeneratorVM()
         {
-            NumTeams = Convert.ToInt32(teams.NumTeams),
+            NumPerTeam = Convert.ToInt32(teams.NumPerTeam),
             Names = teams.Names.Split('\n').ToList()
         };
 

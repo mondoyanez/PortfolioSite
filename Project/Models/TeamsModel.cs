@@ -10,5 +10,5 @@ public class TeamsModel
 
     [Required(ErrorMessage = "Must be a number between 2 and 10")]
     [Range(2, 10)]
-    public int? NumTeams { get; set; }
+    public int? NumPerTeam { get; set; }
 }
