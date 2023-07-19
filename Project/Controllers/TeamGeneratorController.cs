@@ -27,6 +27,8 @@ public class TeamGeneratorController : Controller
             Names = teams.Names.Split('\n').ToList()
         };
 
+        vm.Shuffle();
+
         return View("GenerateTeams", vm);
     }
 }
