@@ -27,6 +27,7 @@ public class TeamGeneratorController : Controller
             Names = teams.Names.Split('\n').ToList()
         };
 
+        vm.NumTeams = Convert.ToInt32(Math.Ceiling(vm.Names.Count / Convert.ToDouble(vm.NumPerTeam)));
         vm.Shuffle();
 
         return View("GenerateTeams", vm);
