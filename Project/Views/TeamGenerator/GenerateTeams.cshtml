@@ -9,30 +9,6 @@
 </div>
 
 <div class="grid grid-cols-4 justify-between mt-20">
-@*
-    <div style="background-color: @Model.ColorsAvailable[0];" class="max-w-[200px] ml-5 p-5 mb-10">
-        <p class="font-bold text-xl">Team 1</p>
-        <p class="text-lg">@Model.Names[0]</p>
-        <p class="text-lg">@Model.Names[1]</p>
-        <p class="text-lg">@Model.Names[2]</p>
-        <p class="text-lg">@Model.Names[3]</p>
-    </div>
-    
-    @for (int i = 1; i <= Model.NumTeams; i++)
-    {
-        <div style="background-color: @Model.ColorsAvailable[(i - 1) % 10];" class="max-w-[200px] ml-5 p-5 mb-10">
-        <p class="font-bold text-xl">Team @i</p>
-        </div>
-    }
-
-    @for (int i = 1; i <= Model.NumTeams; i++)
-    {
-        <div style="background-color: @Model.ColorsAvailable[(i - 1) % 10];" class="max-w-[200px] ml-5 p-5 mb-10">
-        <p class="font-bold text-xl">Team @i</p>
-        </div>
-    }
-*@
-
 
     @for (int i = 0; i < Model.NumTeams; i++)
     {
