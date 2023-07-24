@@ -15,7 +15,7 @@
     @for (int i = 0; i < Model.NumTeams; i++)
     {
         <div style="background-color: @Model.ColorsAvailable[i % Model.ColorsAvailable.Length];" class="max-w-[200px] ml-5 p-5 mb-10">
-            <p class="font-bold text-xl">Team @(i + 1)</p>
+            <p class="font-bold text-xl" id="teamName">Team @(i + 1)</p>
 
             @for (int j = 0; j < Model.NumPerTeam; j++)
             {
@@ -36,3 +36,8 @@
     </form>
     <button class="mx-5 bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" onclick="window.location.reload(true);" type="button">Regenerate Teams</button>
 </div>
+
+@section Scripts
+{
+    <script src="~/js/teamGenerator.js"></script>
+}
