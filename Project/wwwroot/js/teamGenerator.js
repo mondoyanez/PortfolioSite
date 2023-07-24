@@ -597,6 +597,7 @@ let animalNames =
 ];
 
 const animalTeamsBtn = document.getElementById("teamNameAnimalBtn");
+const numberTeamsBtn = document.getElementById("teamNameNumberBtn");
 let originalTeamNames = document.querySelectorAll("#teamName");
 let currentAnimal = 0;
 
@@ -612,4 +613,10 @@ animalTeamsBtn.addEventListener("click", function () {
     }
 
     currentAnimal = 0;
+});
+
+numberTeamsBtn.addEventListener("click", function () {
+    for (let i = 0; i < originalTeamNames.length; i++) {
+        originalTeamNames[i].innerHTML = `Team ${i + 1}`;
+    }
 });
