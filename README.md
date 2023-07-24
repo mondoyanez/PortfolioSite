@@ -186,7 +186,70 @@ the view the deployed page in action and try out any of the features on the webs
     - New Input
         - Takes the user back the input page of the current story to enter new values to generate a different story.
 ### Random Team Generator
-- Still being developed
+- User has the ability to be able to generate random teams based on the following criteria.
+    - Names
+        - User can enter names of individuals to be assigned to teams but their name **must begin with an alphabetic character**.
+    - Number Per Team
+        - How many **max** to assign per each team where the number needs to be between 2-10 **inclusive**.
+- After the user clicks enter they then have the ability to click the different buttons with different functionality.
+    - Assign Team Numbers
+        - This button allows the user to assign the team names by number.
+            - Team 1, Team 2, etc.
+    - Assign Team Animal Names
+        - This button allows the user to assign the team names by animal name.
+            - Team Zebra, Team Human, etc.
+    - Generate New Teams
+        - This button allows the user to return to the form original page where the will be able to enter new names if they wish to and a new number per team.
+    - Regenerate Teams
+        - This button allows the user to reshuffle the teams with the same names being used and the same max amount per team.
+- Sample Runs
+    - Names: Sandra Hart, Joe Swanson, Kevin Sandles, Peter Marvin, Armando Yanez
+    - Number per Team: 2
+    - Teams
+        - Team 1
+            - Kevin Sandles
+            - Peter Marvin
+        - Team 2
+            - Sandra Hart
+            - Joe Swanson
+        - Team 3
+            - Armando Yanez
+    - **clicks** Assign Team Animal Names
+        - Team X-Ray Tetra
+            - Kevin Sandles
+            - Peter Marvin
+        - Team Wolf
+            - Sandra Hart
+            - Joe Swanson
+        - Team Swan
+            - Armando Yanez
+    - **clicks** Regenerate Teams
+        - Team 1
+            - Joe Swanson
+            - Armando Yanez
+        - Team 2
+            - Peter Marvin
+            - Sandra Hart
+        - Team 3
+            - Kevin Sandles
+    - **clicks** Assign Team Animal Names
+        - Team Snail
+            - Joe Swanson
+            - Armando Yanez
+        - Team Zonkey
+            - Peter Marvin
+            - Sandra Hart
+        - Team Bison
+            - Kevin Sandles
+    - **clicks** Assign Team Numbers
+        - Team 1
+            - Joe Swanson
+            - Armando Yanez
+        - Team 2
+            - Peter Marvin
+            - Sandra Hart
+        - Team 3
+            - Kevin Sandles
 
 ### GitHub Repos Viewer
 - Still being developed
