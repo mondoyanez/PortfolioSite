@@ -1,7 +1,27 @@
+@model Portfolio.Models.TeamsModel
+
 @{
     ViewData["Title"] = "Team Generator";
 }
 
-<div class="text-center">
-    <h1 class="font-medium text-3xl text-blue-800 dark:text-blue-200">Team Generator</h1>
+<div class="flex items-center justify-between">
+    <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200">Generate Teams</h1>
+    <a href="https://github.com/mondoyanez/WesternOregonProjects/tree/main/TeamGenerator">
+        <input class="mx-5 bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" value="Original Repo" type="button" />
+    </a>
 </div>
+
+<form asp-controller="TeamGenerator" asp-action="GenerateTeams" class="justify-center grid mt-16">
+    <div asp-validation-summary="All" class="text-red-800 text-base -mt-16 ml-10 md:-ml-10 py-5 block max-w-xs"></div>
+    <div class="mb-[420px] pl-36 md:pl-0 -ml-28">
+        <label class="font-bold text-md text-blue-800 dark:text-blue-200">Enter Names: </label>
+        <textarea asp-for="Names" class="ml-2 -mb-[400px] bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" rows="20" cols="30"></textarea>
+    </div>
+    <div class="mb-10 -ml-[150px] pl-36 md:pl-0">
+        <label class="font-bold text-md text-blue-800 dark:text-blue-200">Number per team: </label>
+        <input asp-for="NumPerTeam" class="ml-2 bg-gray-50 border border-gray-300 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-blue-800 dark:text-blue-200" type="number" />
+    </div>
+    <div class="ml-28">
+        <button class="mx-5 bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" type="submit">Generate Teams</button>
+    </div>
+</form>
