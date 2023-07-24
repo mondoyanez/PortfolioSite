@@ -1,0 +1,43 @@
+﻿@model Portfolio.ViewModels.TeamsGeneratorVM
+
+@{
+    ViewData["Title"] = "Generated Teams";
+}
+
+<div class="flex items-center justify-between">
+    <button class="mx-5 bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" id="teamNameNumberBtn" type="button">Assign Team Numbers</button>
+    <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200">Generated Teams</h1>
+    <button class="mx-5 bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" id="teamNameAnimalBtn" type="button">Assign Team Animal Names</button>
+</div>
+
+<div class="grid grid-cols-2 md:grid-cols-4 justify-between mt-20 px-5">
+
+    @for (int i = 0; i < Model.NumTeams; i++)
+    {
+        <div style="background-color: @Model.ColorsAvailable[i % Model.ColorsAvailable.Length];" class="max-w-[200px] ml-5 p-5 mb-10">
+            <p class="font-bold text-xl" id="teamName">Team @(i + 1)</p>
+
+            @for (int j = 0; j < Model.NumPerTeam; j++)
+            {
+                if (Model.NumPerTeam * i + j == Model.Names.Count)
+                    break;
+
+                <p class="text-lg">@Model.Names[Model.NumPerTeam * i + j]</p>
+            }
+            
+        </div>
+    }
+
+</div>
+
+<div class="flex justify-between">
+    <form asp-controller="TeamGenerator" asp-action="Index" method="get">
+        <button class="mx-5 bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" type="submit">Generate New Teams</button>
+    </form>
+    <button class="mx-5 bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" onclick="window.location.reload(true);" type="button">Regenerate Teams</button>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/teamGenerator.js"></script>
+}
