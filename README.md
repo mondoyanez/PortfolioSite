@@ -191,6 +191,7 @@ the view the deployed page in action and try out any of the features on the webs
         - User can enter names of individuals to be assigned to teams but their name **must begin with an alphabetic character**.
     - Number Per Team
         - How many **max** to assign per each team where the number needs to be between 2-10 **inclusive**.
+- User has the ability to click a button named **Original Repo** that allows them to travel to the original git repo where the project was originally developed to see the differences between this project and the old project.
 - After the user clicks enter they then have the ability to click the different buttons with different functionality.
     - Assign Team Numbers
         - This button allows the user to assign the team names by number.
