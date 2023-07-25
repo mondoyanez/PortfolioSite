@@ -3,7 +3,7 @@
 This GitHub repository is a portfolio containing projects that I have built from 2017-2023 from when I attended Chemeketa Community College and 
 Western Oregon University. It showcases a variety of different projects such as WatchParty and Oregon Turtle App in which had me working with databases 
 while working on a team with other individuals. Also GitHub Repos Viewer which was my introduction to using an external api which was GitHub's and making sure 
-that I was following best practices while I was working on that project. It also includes Little Person Computer which was the very first application I made 
+that I was following best practices while I was working on that project. It also includes the Pythagorean Theorem Calculator which was the very first application I made 
 as a developer to showcase my growth as a developer.
 
 ## Table of Contents
