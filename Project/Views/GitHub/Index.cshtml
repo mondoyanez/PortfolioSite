@@ -1,10 +1,42 @@
 @{
-    ViewData["Title"] = "GitHub Info";
+    ViewData["Title"] = "GitHub Viewer";
 }
 
-<div class="flex items-center justify-between">
-    <h1 class="text-center flex-1 font-medium text-3xl text-blue-800 dark:text-blue-200">GitHub Info</h1>
+<div class="flex items-end justify-end">
     <a href="https://github.com/mondoyanez/WesternOregonProjects/tree/main/GitHubReposTable/HW3/HW3">
         <button class="mx-5 bg-blue-100 dark:bg-blue-900 text-sm font-serif font-bold text-blue-800 dark:text-blue-200 rounded-md p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-800" type="button">Original Repo</button>
     </a>
 </div>
+
+<div id="github-user-content">
+    <div>
+        <img src="" id="github-user-image" alt="GitHub Avatar"/>
+    </div>
+    <div id="github-user-info">
+
+    </div>
+</div>
+
+<div>
+    <div>
+        <h2 class="font-medium text-2xl text-blue-800 dark:text-blue-200">Repositories</h2>
+        <table id="repository-names" style="display: none;"></table>
+    </div>
+    <div>
+        <div id="repository-container" style="display: none;">
+            <div id="repository-info">
+
+            </div>
+            <div>
+                <img src="" id="github-repo-image" alt="Repo Image" style="display: none;"/>
+            </div>
+        </div>
+        <h2 class="font-medium text-2xl text-blue-800 dark:text-blue-200" style="display: none;" id="commits-header">Commits</h2>
+        <table id="commits-info" style="display: none;"></table>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/js/githubApi.js"></script>
+}
