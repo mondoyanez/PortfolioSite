@@ -10,7 +10,7 @@ $.ajax({
 
 function populateGitHubUserData(data) {
     $("#github-user-image").attr("src", data["avatarURL"]);
-    //$("#github-user-info").append(`<h1 id="name-header" class="text-yellow-700 dark:text-yellow-300 font-medium text-3xl"> ${data["name"]} </h1>`);
+    $("#name-header").html(data["name"]);
     $("#github-user-info").append(`<p id="github-account-info"> ${data["userName"]}`);
     $("#github-user-info").append(`<p id="github-account-info"> ${data["email"]}`);
     $("#github-user-info").append(`<p id="github-account-info"> ${data["company"]}`);
