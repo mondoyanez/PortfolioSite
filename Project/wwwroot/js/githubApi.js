@@ -11,11 +11,11 @@ $.ajax({
 function populateGitHubUserData(data) {
     $("#github-user-image").attr("src", data["avatarURL"]);
     $("#name-header").html(data["name"]);
-    $("#github-user-info").append(`<p id="github-account-info"> ${data["userName"]}`);
-    $("#github-user-info").append(`<p id="github-account-info"> ${data["email"]}`);
-    $("#github-user-info").append(`<p id="github-account-info"> ${data["company"]}`);
-    $("#github-user-info").append(`<p id="github-account-info"> ${data["location"]}`);
-   console.log(data);
+    $("#github-username").html(data["userName"]);
+    $("#github-email").html(data["email"]);
+    $("#github-company").html(data["company"]);
+    $("#github-location").html(data["location"]);
+    console.log(data);
 }
 
 function errorOnAjax() {
