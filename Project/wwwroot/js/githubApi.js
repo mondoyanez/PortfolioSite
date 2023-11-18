@@ -14,6 +14,18 @@ $.ajax({
     error: errorOnAjax
 });
 
+function displayBranchInfo(data) {
+    console.log("Displaying branch information");
+}
+
+function displayCommitInfo(data) {
+    console.log("Displaying commit information");
+}
+
+function displayRepoInfo(data) {
+    console.log("Displaying repo information");
+}
+
 function populateGitHubRepoData(data) {
     for (let i = 0; i < data.length; ++i) {
         let repoTR = 
@@ -22,6 +34,51 @@ function populateGitHubRepoData(data) {
         </tr>`;
         $("#repository-names").append((repoTR));
         $("#repository-names").show();
+    }
+
+    for (let i = 0; i < data.length; ++i) {
+        document.addEventListener('click', function (event) {
+            if (event.target.id === data[i]["name"]) {
+                $("#commits-info").empty();
+                $("#repository-info").empty();
+
+                $("#commits-info").show();
+                $("#repository-info").show();
+
+                let params = `?owner=${data[i]["owner"]}&repo=${data[i]["name"]}`;
+                let address = "/api/repository" + params;
+
+                //https://stackoverflow.com/questions/31445242/ajax-request-response-order
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: address,
+                    success: displayRepoInfo,
+                    error: errorOnAjax,
+                    async: false
+                });
+
+                address = "/api/branches" + params;
+
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: address,
+                    success: displayBranchInfo,
+                    error: errorOnAjax
+                });
+
+                address = "/api/commits" + params;
+
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: address,
+                    success: displayCommitInfo,
+                    error: errorOnAjax
+                });
+            }
+        })
     }
 }
 
