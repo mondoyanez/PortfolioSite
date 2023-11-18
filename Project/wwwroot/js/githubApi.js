@@ -16,14 +16,17 @@ $.ajax({
 
 function displayBranchInfo(data) {
     console.log("Displaying branch information");
+    console.log(data);
 }
 
 function displayCommitInfo(data) {
     console.log("Displaying commit information");
+    console.log(data);
 }
 
 function displayRepoInfo(data) {
     console.log("Displaying repo information");
+    console.log(data);
 }
 
 function populateGitHubRepoData(data) {
