@@ -17,6 +17,12 @@ $.ajax({
 function displayBranchInfo(data) {
     console.log("Displaying branch information");
     console.log(data);
+
+    $("#repository-info").append(`<p class="p-1.5">Branches:</p>`);
+
+    for (let i = 0; i < data.length; ++i) {
+        $("#repository-info").append(`<p class="p-1.5">${data[i]["name"]}</p>`);
+    }
 }
 
 function displayCommitInfo(data) {
