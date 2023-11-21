@@ -61,7 +61,8 @@ function populateGitHubRepoData(data) {
                 $("#repository-info").empty();
 
                 $("#commits-info").show();
-                $("#repository-info").show();
+                $("#commits-header").show();
+                // $("#repository-info").show();
 
                 let params = `?owner=${data[i]["owner"]}&repo=${data[i]["name"]}`;
                 let address = "/api/repository" + params;
