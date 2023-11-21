@@ -15,9 +15,6 @@ $.ajax({
 });
 
 function displayBranchInfo(data) {
-    console.log("Displaying branch information");
-    console.log(data);
-
     $("#repository-info").append(`<p class="p-1.5">Branches:</p>`);
 
     for (let i = 0; i < data.length; ++i) {
@@ -31,9 +28,6 @@ function displayCommitInfo(data) {
 }
 
 function displayRepoInfo(data) {
-    console.log("Displaying repo information");
-    console.log(data);
-
     $("#repository-info").append(`<h4 class="text-2xl font-bold text-blue-800 dark:text-blue-200 pb-24 pl-1.5"><a href="${data["htmlURL"]}" target="_blank" id="repository-header"">${data["fullName"]}</a></h4>`);
     $("#repository-info").append(`<img class="w-[216px] h-[216px] ml-[400px] mt-[-90px]" src="${data["ownerAvatarURL"]}" id="github-repo-image" alt="Repo Image"/>`);
     $("#repository-info").append(`<p class="p-1.5">Owner: ${data["owner"]}</p>`);
@@ -62,7 +56,6 @@ function populateGitHubRepoData(data) {
 
                 $("#commits-info").show();
                 $("#commits-header").show();
-                // $("#repository-info").show();
 
                 let params = `?owner=${data[i]["owner"]}&repo=${data[i]["name"]}`;
                 let address = "/api/repository" + params;
