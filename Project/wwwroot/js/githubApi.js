@@ -23,8 +23,53 @@ function displayBranchInfo(data) {
 }
 
 function displayCommitInfo(data) {
-    console.log("Displaying commit information");
-    console.log(data);
+    let commitTR =
+        `
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        SHA
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Timestamp
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Committer
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Commit Message
+                    </th>
+                </tr>
+        </thead>
+        `;
+
+    $("#commits-info").append(commitTR);
+    $("#commits-info").append("<tbody>");
+
+    for (let i = 0; data.length; ++i) {
+        commitTR =
+            `
+                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-6 py-4">
+                        <a href="${data[i]["htmlURL"]}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank">
+                            ${data[i]["sha"].substring(0, 8)}
+                        </a>
+                    </td>
+                    <td class="px-6 py-4">
+                        ${data[i]["whenCommited"]}
+                    </td>
+                    <td class="px-6 py-4">
+                        ${data[i]["commiter"]}
+                    </td>
+                    <td class="px-6 py-4">
+                        ${data[i]["commitMessage"]}
+                    </td>
+                </tr>
+            `;
+        $("#commits-info").append(commitTR);
+    }
+
+    $("#commits-info").append("</tbody>");
 }
 
 function displayRepoInfo(data) {
