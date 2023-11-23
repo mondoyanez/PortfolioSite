@@ -49,9 +49,9 @@ function displayCommitInfo(data) {
     for (let i = 0; data.length; ++i) {
         commitTR =
             `
-                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600">
                     <td class="px-6 py-4">
-                        <a href="${data[i]["htmlURL"]}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank">
+                        <a href="${data[i]["htmlURL"]}" class="font-medium text-blue-600 dark:text-blue-300 hover:underline" target="_blank">
                             ${data[i]["sha"].substring(0, 8)}
                         </a>
                     </td>
