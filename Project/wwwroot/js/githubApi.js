@@ -27,16 +27,16 @@ function displayCommitInfo(data) {
         `
         <thead class="text-xs font-bold uppercase bg-gray-50 dark:bg-gray-700">
                 <tr>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="sm:px-6 px-1 py-3">
                         SHA
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="sm:px-6 px-2 py-3">
                         Timestamp
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="sm:px-6 px-2 py-3">
                         Committer
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="sm:px-6 px-2 py-3">
                         Commit Message
                     </th>
                 </tr>
@@ -46,22 +46,25 @@ function displayCommitInfo(data) {
     $("#commits-info").append(commitTR);
     $("#commits-info").append("<tbody>");
 
+    // where code was found for converting datetime to custom string https://stackoverflow.com/questions/27353047/convert-date-in-to-custom-format-in-javascript
+    // console.log(moment.utc("2014-11-18T20:50:01.462Z").format('HH:mm YYYY-DD-MM'));
+
     for (let i = 0; data.length; ++i) {
         commitTR =
             `
                 <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600">
-                    <td class="px-6 py-4">
+                    <td class="sm:px-6 px-1 py-4">
                         <a href="${data[i]["htmlURL"]}" class="font-medium text-blue-600 dark:text-blue-300 hover:underline" target="_blank">
                             ${data[i]["sha"].substring(0, 8)}
                         </a>
                     </td>
-                    <td class="px-6 py-4">
-                        ${data[i]["whenCommited"]}
+                    <td class="sm:px-6 px-2 py-4">
+                        ${moment.utc(data[i]["whenCommited"]).format('MMMM DD, YYYY HH:mm:ss')}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="sm:px-6 px-2 py-4">
                         ${data[i]["commiter"]}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="sm:px-6 px-2 py-4">
                         ${data[i]["commitMessage"]}
                     </td>
                 </tr>
