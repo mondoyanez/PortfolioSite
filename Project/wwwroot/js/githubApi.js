@@ -74,7 +74,7 @@ function displayCommitInfo(data) {
 
 function displayRepoInfo(data) {
     $("#repository-info").append(`<h4 class="text-2xl font-bold text-blue-800 dark:text-blue-200 pb-24 pl-1.5"><a href="${data["htmlURL"]}" target="_blank" id="repository-header"">${data["fullName"]}</a></h4>`);
-    $("#repository-info").append(`<img class="w-[216px] h-[216px] ml-[400px] mt-[-90px]" src="${data["ownerAvatarURL"]}" id="github-repo-image" alt="Repo Image"/>`);
+    $("#repository-info").append(`<img class="w-[216px] h-[216px] 2xl:ml-[380px] xl:ml-[624px] ml-[210px] mt-[-90px]" src="${data["ownerAvatarURL"]}" id="github-repo-image" alt="Repo Image"/>`);
     $("#repository-info").append(`<p class="p-1.5">Owner: ${data["owner"]}</p>`);
     $("#repository-info").append(`<p class="p-1.5">Last Updated: ${data["lastUpdated"]} day(s) ago`);
 
