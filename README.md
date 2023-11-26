@@ -253,8 +253,30 @@ the view the deployed page in action and try out any of the features on the webs
             - Kevin Sandles
 
 ### GitHub Repos Viewer
-- Still being developed
-
+- User has the ability to view information from my GitHub account found in a container which includes the following:
+    - Full name (First and Last)
+    - Profile image
+    - Username
+    - Email
+    - Organization
+    - Location
+- It also lists all of the public GitHub repositories that I was apart of listed as buttons and upon clicking the button it displays a repository container that contains the following information:
+    - Header that is in the format of: owner/repositoryName
+    - Repository image
+    - Owner username
+    - How many days its been since it has been last updated(repository)
+    - All of the branches names
+    - Also a commits table is populated that contains 30 of the most recent commits found on the repository and contains the following information on the table:
+        - SHA ID
+        - Timestamp of commit in Month Day, Year Hour:Minute:Second format
+        - Commiter full name
+        - Commit message
+- Sample Output:
+<br>
+<img src="./misc/GitHub/ProfileContainerImage.png" title="GitHub Profile Container" alt="GitHub Profile Container" width="700" height="200"><br>
+<img src="./misc/GitHub/RepositoriesImage.png" title="GitHub Profile Container" alt="GitHub Profile Container" width="500" height="700"><br>
+<img src="./misc/GitHub/RepositoryContainerImage.png" title="GitHub Profile Container" alt="GitHub Profile Container" width="500" height="700"><br>
+<img src="./misc/GitHub/CommitsTableImage.png" title="GitHub Profile Container" alt="GitHub Profile Container" width="500" height="700"><br>
 ## Features
 
 - Projects: Index page that has my projects in one page for the user to be able to navigate to each project from one location.
