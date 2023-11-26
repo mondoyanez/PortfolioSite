@@ -1,3 +1,5 @@
+using Portfolio.Services;
+
 namespace Portfolio;
 
 public class Program
@@ -6,8 +8,12 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        string gitHubToken = builder.Configuration["GitHubToken"];
+        string githubUsername = builder.Configuration["GitHubUserName"];
+
         // Add services to the container.
         builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+        builder.Services.AddScoped<IGitHubService, GitHubService>(s => new GitHubService(githubUsername, gitHubToken));
 
         var app = builder.Build();
 
