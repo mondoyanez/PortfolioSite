@@ -23,10 +23,6 @@ function displayBranchInfo(data) {
 }
 
 function displayCommitInfo(data) {
-    console.log(data);
-    console.log(data.length);
-    console.log(data.length - 1);
-
     let commitTR =
         `
         <thead class="text-xs font-bold uppercase bg-gray-50 dark:bg-gray-700">
