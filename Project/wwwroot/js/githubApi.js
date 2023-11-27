@@ -23,6 +23,10 @@ function displayBranchInfo(data) {
 }
 
 function displayCommitInfo(data) {
+    console.log(data);
+    console.log(data.length);
+    console.log(data.length - 1);
+
     let commitTR =
         `
         <thead class="text-xs font-bold uppercase bg-gray-50 dark:bg-gray-700">
@@ -49,7 +53,7 @@ function displayCommitInfo(data) {
     // where code was found for converting datetime to custom string https://stackoverflow.com/questions/27353047/convert-date-in-to-custom-format-in-javascript
     // console.log(moment.utc("2014-11-18T20:50:01.462Z").format('HH:mm YYYY-DD-MM'));
 
-    for (let i = 0; data.length; ++i) {
+    for (let i = 0; i < data.length - 1; i++) {
         commitTR =
             `
                 <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600">
