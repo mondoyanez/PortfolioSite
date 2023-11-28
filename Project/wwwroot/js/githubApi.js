@@ -25,18 +25,18 @@ function displayBranchInfo(data) {
 function displayCommitInfo(data) {
     let commitTR =
         `
-        <thead class="text-xs font-bold uppercase bg-gray-50 dark:bg-gray-700">
+        <thead class="lg:text-base text-xs font-bold uppercase bg-gray-50 dark:bg-gray-700">
                 <tr>
-                    <th scope="col" class="sm:px-6 px-1 py-3">
+                    <th scope="col" class="md:px-6 px-1 py-3">
                         SHA
                     </th>
-                    <th scope="col" class="sm:px-6 px-2 py-3">
+                    <th scope="col" class="md:px-6 px-2 py-3">
                         Timestamp
                     </th>
-                    <th scope="col" class="sm:px-6 px-2 py-3">
+                    <th scope="col" class="md:px-6 px-2 py-3">
                         Committer
                     </th>
-                    <th scope="col" class="sm:px-6 px-2 py-3">
+                    <th scope="col" class="md:px-6 px-2 py-3">
                         Commit Message
                     </th>
                 </tr>
@@ -48,49 +48,23 @@ function displayCommitInfo(data) {
 
     // where code was found for converting datetime to custom string https://stackoverflow.com/questions/27353047/convert-date-in-to-custom-format-in-javascript
     // console.log(moment.utc("2014-11-18T20:50:01.462Z").format('HH:mm YYYY-DD-MM'));
-    /*
     if (data.length > 1) {
         for (let i = 0; i < data.length - 1; i++) {
             commitTR =
                 `
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600">
-                        <td class="sm:px-6 px-1 py-4">
+                        <td class="md:px-6 px-1 py-4 lg:text-base text-xs">
                             <a href="${data[i]["htmlURL"]}" class="font-medium text-blue-600 dark:text-blue-300 hover:underline" target="_blank">
                                 ${data[i]["sha"].substring(0, 8)}
                             </a>
                         </td>
-                        <td class="sm:px-6 px-2 py-4">
-                            ${moment.utc(data[i]["whenCommited"]).format('MMMM DD, YYYY HH:mm:ss')}
-                        </td>
-                        <td class="sm:px-6 px-2 py-4">
-                            ${data[i]["commiter"]}
-                        </td>
-                        <td class="sm:px-6 px-2 py-4">
-                            ${data[i]["commitMessage"]}
-                        </td>
-                    </tr>
-                `;
-            $("#commits-info").append(commitTR);
-        }
-    }
-    */
-    if (data.length > 1) {
-        for (let i = 0; i < data.length - 1; i++) {
-            commitTR =
-                `
-                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600">
-                        <td class="sm:px-6 px-1 py-4">
-                            <a href="${data[i]["htmlURL"]}" class="font-medium text-blue-600 dark:text-blue-300 hover:underline" target="_blank">
-                                ${data[i]["sha"].substring(0, 8)}
-                            </a>
-                        </td>
-                        <td class="sm:px-6 px-2 py-4">
+                        <td class="md:px-6 px-2 py-4 lg:text-base text-xs">
                             ${data[i]["whenCommited"]}
                         </td>
-                        <td class="sm:px-6 px-2 py-4">
+                        <td class="md:px-6 px-2 py-4 lg:text-base text-xs">
                             ${data[i]["commiter"]}
                         </td>
-                        <td class="sm:px-6 px-2 py-4">
+                        <td class="md:px-6 px-2 py-4 lg:text-base text-xs">
                             ${data[i]["commitMessage"]}
                         </td>
                     </tr>
@@ -102,18 +76,18 @@ function displayCommitInfo(data) {
         commitTR =
                 `
                     <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600">
-                        <td class="sm:px-6 px-1 py-4">
+                        <td class="md:px-6 px-1 py-4 lg:text-base text-xs">
                             <a href="${data[0]["htmlURL"]}" class="font-medium text-blue-600 dark:text-blue-300 hover:underline" target="_blank">
                                 ${data[0]["sha"].substring(0, 8)}
                             </a>
                         </td>
-                        <td class="sm:px-6 px-2 py-4">
-                            ${moment.utc(data[0]["whenCommited"]).format('MMMM DD, YYYY HH:mm:ss')}
+                        <td class="md:px-6 px-2 py-4 lg:text-base text-xs">
+                            ${data[0]["whenCommited"]}
                         </td>
-                        <td class="sm:px-6 px-2 py-4">
+                        <td class="md:px-6 px-2 py-4 lg:text-base text-xs">
                             ${data[0]["commiter"]}
                         </td>
-                        <td class="sm:px-6 px-2 py-4">
+                        <td class="md:px-6 px-2 py-4 lg:text-base text-xs">
                             ${data[0]["commitMessage"]}
                         </td>
                     </tr>
